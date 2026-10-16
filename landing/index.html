@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#05040b">
+  <title>Reiner — League of Legends Discord Bot: Lobbies, Games &amp; AI</title>
+  <meta name="description" content="Reiner is an all-in-one Discord bot: MMR-balanced League custom lobbies, Imposter and live trivia, AI chat, points and ranks, focus timers, moderation and a web Command Center.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://reinersbot.space/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Reiner">
+  <meta property="og:url" content="https://reinersbot.space/">
+  <meta property="og:title" content="Reiner — One Bot. Your Whole Server.">
+  <meta property="og:description" content="Custom lobbies, mini-games, AI chat, points, focus timers and moderation — all run from one cinematic dashboard.">
+  <meta property="og:image" content="https://reinersbot.space/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://reinersbot.space/assets/og.png">
+
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/assets/icon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- Entrance pre-state: must run before first paint, so it's a blocking (tiny) script. -->
+  <script src="/js/boot.js"></script>
+  <script src="/js/pre.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=block" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/motion.css">
+  <link rel="stylesheet" href="/css/site.css">
+  <link rel="stylesheet" href="/css/discord.css">
+  <link rel="stylesheet" href="/css/home.css">
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://reinersbot.space/#org",
+   "name": "Reiner",
+   "url": "https://reinersbot.space/",
+   "logo": "https://reinersbot.space/assets/icon-512.png",
+   "email": "yousseftimoumi@reinersbot.space",
+   "founder": {
+    "@type": "Person",
+    "name": "Youssef Timoumi",
+    "alternateName": "Reiner",
+    "url": "https://github.com/youssef1timoumi"
+   },
+   "sameAs": [
+    "https://github.com/youssef1timoumi"
+   ],
+   "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer support",
+    "email": "yousseftimoumi@reinersbot.space"
+   }
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://reinersbot.space/#site",
+   "url": "https://reinersbot.space/",
+   "name": "Reiner",
+   "publisher": {
+    "@id": "https://reinersbot.space/#org"
+   }
+  },
+  {
+   "@type": "SoftwareApplication",
+   "name": "Reiner",
+   "applicationCategory": "CommunicationApplication",
+   "applicationSubCategory": "Discord bot",
+   "operatingSystem": "Discord (Windows, macOS, Linux, iOS, Android, Web)",
+   "url": "https://reinersbot.space/",
+   "description": "All-in-one Discord bot for League of Legends communities: MMR-balanced custom lobbies, Imposter and live trivia mini-games, AI chat, points and ranks, focus timers, moderation and a web dashboard.",
+   "image": "https://reinersbot.space/assets/og.png",
+   "publisher": {
+    "@id": "https://reinersbot.space/#org"
+   },
+   "featureList": [
+    "League of Legends custom lobbies with MMR",
+    "Team draft and voting",
+    "Match history",
+    "Imposter social deduction game",
+    "Live League trivia quiz",
+    "Daily League question",
+    "AI chat via @mention",
+    "Points and rank roles",
+    "Leaderboards",
+    "Focus timers and tasks",
+    "Anti-spam",
+    "Support tickets",
+    "Auto-greeting",
+    "Web admin dashboard"
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What is Reiner?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Reiner is an all-in-one Discord bot built for League of Legends communities. It runs custom lobbies (in-house games) with MMR, has built-in mini-games (Imposter and live League trivia), AI chat, a points and rank system, focus timers, moderation tools, and a web dashboard called the Command Center."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do League of Legends custom lobbies work in Discord?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Players gather in the queue lobby voice channel. Members vote on the team format, Reiner moves everyone into Team 1 and Team 2 voice channels, you play, then everyone votes the winner. Winners get +50 MMR and losers −50, adjusted for streaks, and setup option 21 posts every result to a match history channel."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What games can my Discord server play with Reiner?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Imposter, a social deduction word game themed on League champions, items and terms (/imposter). A live League quiz where members guess champions from splash art, abilities, lore and titles (/quizz). And a daily League question (/dailyq), posted every day at 20:00."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why do I need a role called DEV?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Reiner uses a role named exactly DEV to decide who can run setup and admin commands, open the dashboard and manage points. Create it in Server Settings → Roles and give it to yourself and any co-admins."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why isn't Reiner responding to setup commands?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Check three things: you have the DEV role (exact spelling), you're in the admin channel you set with “@Reiner admin channel here”, and you actually mentioned the bot with @Reiner."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I log in to the Reiner dashboard?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Run /dashboard in your server (DEV role required). Reiner DMs you a private login link that lasts 24 hours and only works for your server. There's no separate account or password. If /dashboard isn't available yet, run setup wizard option 20."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does Reiner have a points and leveling system?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Members earn points from lobbies and activity (chat and voice time), and climb rank roles from Unranked through Bronze, Silver, Gold and Diamond to Master. /me shows your progress and /ld the leaderboard. Admins can switch activity points off so lobbies are the only way to earn."
+     }
+    }
+   ]
+  }
+ ]
+}
+  </script>
+</head>
+<body class="site home">
+  <a class="skip" href="#preview">Skip to content</a>
+  <!-- partial:topbar variant=home -->
+  <header class="topbar home-bar" data-show="false">
+    <div class="topbar-in site-wrap">
+      <a class="s-brand" href="/" aria-label="Reiner home">
+        <span class="ring conic-ring"><img src="/assets/logo-112.webp" alt="" width="36" height="36"></span>
+        <b>Reiner</b>
+      </a>
+      <nav class="s-nav" aria-label="Primary">
+        <a href="/features/">Features</a>
+        <a class="nav-opt" href="/#how">How to use</a>
+        <a href="/docs/">Docs</a>
+      </nav>
+      <a class="s-cta btn-shine" href="https://discord.com/oauth2/authorize?client_id=1346151882518827008&amp;permissions=8&amp;integration_type=0&amp;scope=bot" rel="noopener">
+        <span>Add Bot<span class="wide"> to Discord</span></span>
+        <span class="s-knob" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9.5 6 6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </header>
+  <!-- /partial:topbar -->
+  <main id="main">
+  <div class="page">
+    <section class="card" aria-label="Introduction">
+
+      <!--
+        BACKGROUND CLIP (assets/hero.mp4 + assets/hero-poster.jpg — not supplied yet).
+        Intended shot: a dark nebula sky with twinkling stars; a glowing planet rising
+        from the bottom third, its surface laced with thin pulsing violet/cyan/emerald
+        energy veins and a soft two-layer atmospheric rim glow; a Saturn-style particle
+        ring arching behind it; embers drifting upward; one or two iridescent glass
+        crystal shards nearby with glowing edges, a visible emerald core and a faint
+        particle halo. Bloom-heavy, slight chromatic aberration, light film grain,
+        vignette — same mood as the dashboard's 3D hero. Silent, seamless loop.
+        Until it exists, js/media.js keeps the CSS backdrop below on screen.
+      -->
+      <video class="bg" autoplay muted loop playsinline preload="auto"
+             disablepictureinpicture aria-hidden="true">
+        <!-- When the clip exists: add poster="/assets/hero-poster.jpg" above and
+             <source src="/assets/hero.mp4" type="video/mp4"> here. -->
+      </video>
+
+      <!-- CSS fallback plate: shown whenever the clip is missing, broken or not ready. -->
+      <div class="backdrop" aria-hidden="true">
+        <div class="bd-grid"></div>
+        <div class="bd-aurora"></div>
+        <div class="stars"></div>
+        <div class="planet"></div>
+        <div class="planet-glow"></div>
+      </div>
+
+      <div class="tint" aria-hidden="true"></div>
+
+      <div class="stack">
+
+        <!-- ── Header ── -->
+        <header class="row top">
+          <a class="brand l t" style="--x:40;--y:20" href="/" aria-label="Reiner home">
+            <span class="ring conic-ring"><img class="mark" src="/assets/logo-112.webp" alt=""></span>
+            <b class="sx" style="--sx:1">Reiner</b>
+          </a>
+
+          <button class="burger glass l t r" style="--x:40;--y:20" type="button"
+                  aria-label="Open menu" aria-expanded="false" aria-controls="site-menu">
+            <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+          </button>
+
+          <div class="menu glass" id="site-menu" data-open="false">
+            <nav class="nav glass l t" style="--y:20" aria-label="Primary">
+              <a class="n-home" href="/features/">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 10.5 12 3.5l8.5 7V20a.5.5 0 0 1-.5.5h-5v-6h-6v6H4a.5.5 0 0 1-.5-.5z"/></svg>
+                <span>Features</span>
+              </a>
+              <span class="n-div" aria-hidden="true"></span>
+              <a class="n-grid" href="/docs/">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"/></svg>
+                <span>Docs</span>
+              </a>
+            </nav>
+
+            <a class="cta l t r glass btn-shine" style="--x:40;--y:18" rel="noopener"
+               href="https://discord.com/oauth2/authorize?client_id=1346151882518827008&amp;permissions=8&amp;integration_type=0&amp;scope=bot">
+              <span>Add Bot to Discord</span>
+              <span class="knob" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9.5 6 6 6-6 6"/></svg></span>
+            </a>
+          </div>
+        </header>
+
+        <!-- ── Hero ── -->
+        <div class="hero-blk">
+          <p class="eyebrow l c" style="--x:40;--y:-222"><i class="dot" aria-hidden="true"></i>Command Center</p>
+
+          <h1 class="hero-h l c" style="--x:37;--y:-190">
+            <span class="line text-shimmer sx" style="--sx:.99">One Bot.</span>
+            <span class="line text-shimmer sx" style="--sx:.99">Your Whole Server.</span>
+          </h1>
+
+          <div class="tagrow">
+            <a class="play glass l c" style="--x:40;--y:22" href="/docs/"
+               aria-label="See Reiner in action — open the live docs">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
+            </a>
+            <p class="tag l c" style="--x:116;--y:22">Ranked custom lobbies, mini-games, AI chat, points and moderation — all run from one cinematic dashboard.</p>
+          </div>
+
+          <aside class="panel glass l c r" id="features" style="--x:40;--y:-170" aria-labelledby="features-title">
+            <b class="p-title" id="features-title">All-in-One</b>
+            <ul class="feats">
+              <li>
+                <span class="p-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.4 7.5 9.5 4.3-1.1 7.5-4.9 7.5-9.5V6z"/><path d="M8.5 11.5 12 9l3.5 2.5M8.5 15 12 12.5l3.5 2.5"/></svg></span>
+                <span><b>Custom Lobbies</b><small>Queue, draft &amp; MMR ranks</small></span>
+              </li>
+              <li>
+                <span class="p-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="11" rx="4"/><path d="M8 10.5v4M6 12.5h4M15.5 11.5h.01M17.5 13.5h.01"/></svg></span>
+                <span><b>Mini-Games</b><small>Imposter &amp; live trivia</small></span>
+              </li>
+              <li>
+                <span class="p-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 1-11.6 7.1L4 20l1-4.1A8 8 0 1 1 20 12z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01"/></svg></span>
+                <span><b>AI Chat</b><small>Just @mention Reiner</small></span>
+              </li>
+              <li>
+                <span class="p-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M7 6H4v1.5A3.5 3.5 0 0 0 7.5 11M17 6h3v1.5a3.5 3.5 0 0 1-3.5 3.5"/></svg></span>
+                <span><b>Points &amp; Tools</b><small>Leaderboards, timers, tickets</small></span>
+              </li>
+            </ul>
+          </aside>
+        </div>
+
+        <!-- ── Footer ── -->
+        <footer class="row foot">
+          <!-- Product facts, not usage numbers: swap for live counts (servers, games played) once tracked. -->
+          <div class="stats l b" style="--x:40;--y:30">
+            <div class="stat">
+              <span class="num sx" style="--sx:1">12+</span>
+              <span class="lbl sx" style="--sx:1">Built-in Modules</span>
+            </div>
+            <span class="slash" aria-hidden="true"></span>
+            <div class="stat">
+              <span class="num sx" style="--sx:1">0</span>
+              <span class="lbl sx" style="--sx:1">Extra Logins Needed</span>
+            </div>
+          </div>
+
+          <a class="credit cue l b" style="--y:1" href="#preview">See it in action
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+
+          <a class="meet l b r glass btn-shine" style="--x:40;--y:30" href="/docs/">
+            <span class="thumb"><img alt="" src="/assets/logo-112.webp"></span>
+            <b>Meet Reiner</b>
+            <span class="knob" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9.5 6 6 6-6 6"/></svg></span>
+          </a>
+        </footer>
+
+      </div>
+    </section>
+  </div>
+  
+  <!-- ════════ Live preview ════════ -->
+  <section class="sec showcase" id="preview" aria-labelledby="preview-title">
+    <div class="site-wrap">
+      <div class="sec-head rv">
+        <p class="label"><b>01</b> Live preview</p>
+        <h2 class="h-sec" id="preview-title">See it in action. <em>Exactly what your members see in Discord.</em></h2>
+      </div>
+
+      <div class="sc-tabs rv" role="tablist" aria-label="Feature previews">
+        <button class="sc-tab" role="tab" type="button" id="tab-lobby" data-scene="lobby" aria-selected="true" aria-controls="sc-stage"><small>01</small>Custom lobbies<i class="sc-prog"></i></button>
+        <button class="sc-tab" role="tab" type="button" id="tab-imposter" data-scene="imposter" aria-selected="false" aria-controls="sc-stage" tabindex="-1"><small>02</small>Imposter<i class="sc-prog"></i></button>
+        <button class="sc-tab" role="tab" type="button" id="tab-quiz" data-scene="quiz" aria-selected="false" aria-controls="sc-stage" tabindex="-1"><small>03</small>Live trivia<i class="sc-prog"></i></button>
+        <button class="sc-tab" role="tab" type="button" id="tab-ai" data-scene="ai" aria-selected="false" aria-controls="sc-stage" tabindex="-1"><small>04</small>AI chat<i class="sc-prog"></i></button>
+        <button class="sc-tab" role="tab" type="button" id="tab-ranks" data-scene="ranks" aria-selected="false" aria-controls="sc-stage" tabindex="-1"><small>05</small>Points &amp; ranks<i class="sc-prog"></i></button>
+        <button class="sc-tab" role="tab" type="button" id="tab-timer" data-scene="timer" aria-selected="false" aria-controls="sc-stage" tabindex="-1"><small>06</small>Focus timer<i class="sc-prog"></i></button>
+      </div>
+    </div>
+
+    <div class="sc-stage" id="sc-stage" role="tabpanel" aria-labelledby="tab-lobby" aria-describedby="sc-desc">
+      <!-- Text version of each preview (what search engines and screen readers get). -->
+      <ul class="sr-only" id="sc-desc">
+        <li>Custom lobbies: an admin posts the queue with /sendqueue, players join the Queue Lobby voice channel until it's 10 of 10, Reiner sets two teams balanced by MMR, moves them to voice and posts the result: +50 MMR for winners, −50 for losers.</li>
+        <li>Imposter: /imposter deals a secret League word to everyone except one player; the voice channel discusses, votes, and Reiner reveals the imposter.</li>
+        <li>Live trivia: /quizz starts a League of Legends quiz; the fastest correct answer earns points.</li>
+        <li>AI chat: members mention @Reiner in plain English to set reminders, check points or start timers.</li>
+        <li>Points and ranks: /me shows a member's points, rank tier and progress; /ld shows the leaderboard.</li>
+        <li>Focus timer: /timer 25m starts a focus session that is saved when it ends.</li>
+      </ul>
+
+      <div class="sc-rig" aria-hidden="true">
+        <div class="sc-floor"></div>
+
+        <div class="sc-back">
+          <div class="sb-side">
+            <b>Command Center</b>
+            <span data-k="overview">Overview</span>
+            <span data-k="lobby">Lobbies</span>
+            <span data-k="points">Points</span>
+            <span data-k="games">Games</span>
+            <span data-k="channels">Channels</span>
+          </div>
+          <div class="sb-main">
+            <div><small>Members</small><b>248</b></div>
+            <div><small id="sb-k1">Lobbies today</small><b id="sb-v1">3</b></div>
+            <div><small>Top rank</small><b>Master</b></div>
+            <div class="sb-chart"><i style="height:38%"></i><i style="height:62%"></i><i style="height:48%"></i><i style="height:80%"></i><i style="height:56%"></i><i style="height:92%"></i><i style="height:70%"></i></div>
+          </div>
+        </div>
+
+        <div class="dc">
+          <div class="dc-rail"><img src="/assets/logo-112.webp" alt="" loading="lazy"><span class="sep"></span><i></i><i></i><i></i></div>
+          <div class="dc-side">
+            <b class="dc-server">Rift Squad</b>
+            <span class="dc-cat">Text channels</span>
+            <span class="dc-ch" data-ch="general"><b>#</b>general</span>
+            <span class="dc-ch" data-ch="lobby-queue"><b>#</b>lobby-queue</span>
+            <span class="dc-ch" data-ch="lol-quiz"><b>#</b>lol-quiz</span>
+            <span class="dc-ch" data-ch="focus-room"><b>#</b>focus-room</span>
+            <span class="dc-cat">Voice</span>
+            <span class="dc-ch" data-ch="voice"><svg viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4zM15.5 8.5a5 5 0 0 1 0 7"/></svg>Lobby 1</span>
+          </div>
+          <div class="dc-main">
+            <div class="dc-head"><span>#</span><b class="dc-title">lobby-queue</b></div>
+            <div class="dc-log"></div>
+            <div class="dc-input"><span class="dc-typed"></span><i class="caret"></i><span class="dc-ph">Message #lobby-queue</span></div>
+          </div>
+        </div>
+
+        <div class="sat sat-1"></div>
+        <div class="sat sat-2"></div>
+        <div class="sat sat-3"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ How to use ════════ -->
+  <section class="sec how" id="how" aria-labelledby="how-title">
+    <div class="site-wrap how-grid">
+      <div class="how-aside rv">
+        <p class="label"><b>02</b> How to use</p>
+        <h2 class="h-sec" id="how-title">Set up in five minutes. <em>Two rules, then a wizard.</em></h2>
+        <p class="lead">Reiner only takes setup and admin commands from people with the <b>DEV</b> role, and only inside your <b>admin channel</b>. Get those two right and the setup wizard handles the rest.</p>
+
+        <div class="token-wrap">
+          <div class="token" aria-hidden="true">
+            <span class="edge" style="--i:1"></span><span class="edge" style="--i:2"></span><span class="edge" style="--i:3"></span>
+            <span class="edge" style="--i:4"></span><span class="edge" style="--i:5"></span><span class="edge" style="--i:6"></span>
+            <span class="edge" style="--i:7"></span><span class="edge" style="--i:8"></span>
+            <span class="face front"><small>role</small><b>DEV</b></span>
+            <span class="face back"><small>channel</small><b>#admin</b></span>
+          </div>
+          <p>The role must be called <b>DEV</b>, in capitals. Reiner checks the role's name, not its permissions.</p>
+        </div>
+
+        <ul class="musts">
+          <li><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg><span><b>A role named <code class="k">DEV</code></b>, given to you and any co-admins.</span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg><span><b>A private admin channel</b> where setup and admin commands run.</span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg><span><b>Reiner's role near the top</b> of the role list, so it can assign rank roles.</span></li>
+        </ul>
+      </div>
+
+      <div>
+        <ol class="steps">
+          <li class="step rv">
+            <span class="step-n" aria-hidden="true">01</span>
+            <div>
+              <h3>Add Reiner to your server</h3>
+              <p>Click <b>Add Bot to Discord</b>, pick your server and keep the requested permissions. Reiner manages roles, channels and nicknames for ranks and lobbies.</p>
+              <p>Then open <b>Server Settings → Roles</b> and drag <b>Reiner</b> above the roles it should manage. Discord bots can only assign roles below their own.</p>
+            </div>
+          </li>
+          <li class="step rv">
+            <span class="step-n" aria-hidden="true">02</span>
+            <div>
+              <h3>Give yourself the DEV role</h3>
+              <p>In <b>Server Settings → Roles</b>, create a role named exactly <code class="k">DEV</code> and assign it to yourself. Without it, Reiner replies: <i>“You need the DEV role to start setup.”</i></p>
+              <div class="role-row"><i aria-hidden="true"></i><b>DEV</b><span class="pill">assigned to you</span></div>
+            </div>
+          </li>
+          <li class="step rv">
+            <span class="step-n" aria-hidden="true">03</span>
+            <div>
+              <h3>Set your admin channel</h3>
+              <p>Create a private text channel, for example <code class="k">#reiner-admin</code>, then mention the bot there:</p>
+              <div class="cmd"><code><span class="men">@Reiner</span> admin channel here</code><button class="copy" type="button" data-copy="@Reiner admin channel here"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#copy"/></svg><span class="copy-t">Copy</span></button></div>
+              <div class="reply"><img src="/assets/logo-112.webp" alt="" width="24" height="24" loading="lazy"><span><b>Reiner</b> <svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#check-circle"/></svg>This channel has been set as the admin channel. All admin commands must now be used here.</span></div>
+            </div>
+          </li>
+          <li class="step rv">
+            <span class="step-n" aria-hidden="true">04</span>
+            <div>
+              <h3>Run the setup wizard</h3>
+              <p>In the admin channel, start the wizard and reply with a number. <code class="k">6</code> runs everything; or pick only what you need:</p>
+              <div class="cmd"><code><span class="men">@Reiner</span> start setup</code><button class="copy" type="button" data-copy="@Reiner start setup"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#copy"/></svg><span class="copy-t">Copy</span></button></div>
+              <div class="pick-list">
+                <span class="all"><b>6</b>Complete setup</span>
+                <span><b>1</b>Slash commands</span>
+                <span><b>5</b>Points &amp; ranks</span>
+                <span><b>16</b>Custom lobbies</span>
+                <span><b>21</b>Match history</span>
+                <span><b>15</b>Daily quiz</span>
+                <span><b>20</b>Dashboard access</span>
+              </div>
+            </div>
+          </li>
+          <li class="step rv">
+            <span class="step-n" aria-hidden="true">05</span>
+            <div>
+              <h3>Open the Command Center</h3>
+              <p>Run <code class="k">/dashboard</code> (installed by wizard option <code class="k">20</code>). Reiner DMs you a login link that's valid for 24 hours. No account or password needed.</p>
+              <div class="reply"><img src="/assets/logo-112.webp" alt="" width="24" height="24" loading="lazy"><span><b>Reiner</b> <svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#check-circle"/></svg>I sent your 24-hour login link to your <b>DMs</b>.</span></div>
+            </div>
+          </li>
+          <li class="step rv">
+            <span class="step-n" aria-hidden="true">06</span>
+            <div>
+              <h3>Let your members in</h3>
+              <p>Everyone else types <code class="k">/reinerhelp</code> to see what they can do: join lobbies, play Imposter and trivia, check <code class="k">/me</code>, start timers, or just <code class="k">@Reiner</code> in plain English.</p>
+              <p><a class="tlink" href="/docs/">Read the full docs <svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#arrow-right"/></svg></a></p>
+            </div>
+          </li>
+        </ol>
+
+        <div class="trouble rv">
+          <h3><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#help"/></svg>Reiner not responding?</h3>
+          <ul>
+            <li>The role must be named exactly <code class="k">DEV</code> (capitals), and you must have it.</li>
+            <li>Admin commands only work in the channel you set with <code class="k">@Reiner admin channel here</code>.</li>
+            <li>Setup commands need a real mention of the bot (<code class="k">@Reiner</code>), not just the word “Reiner”.</li>
+            <li>Rank roles not updating? Move Reiner's role above them in Server Settings → Roles.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ FAQ ════════ -->
+  <section class="sec faq" id="faq" aria-labelledby="faq-title">
+    <div class="site-wrap faq-wrap">
+      <div class="rv">
+        <p class="label"><b>03</b> FAQ</p>
+        <h2 class="h-sec" id="faq-title">Questions, <em>answered.</em></h2>
+        <p class="lead">Can't find it here? Check the <a class="tlink" href="/docs/">docs</a> or <a class="tlink" href="#contact">get in touch</a>.</p>
+      </div>
+      <div class="faq-list rv">
+        <details>
+          <summary>What is Reiner?<svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#plus"/></svg></summary>
+          <p>Reiner is an all-in-one Discord bot built for League of Legends communities. It runs custom lobbies (in-house games) with MMR, has built-in mini-games (Imposter and live League trivia), AI chat, a points and rank system, focus timers, moderation tools, and a web dashboard called the Command Center.</p>
+        </details>
+        <details>
+          <summary>How do League of Legends custom lobbies work in Discord?<svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#plus"/></svg></summary>
+          <p>Players gather in the queue lobby voice channel. Members vote on the team format, Reiner moves everyone into Team 1 and Team 2 voice channels, you play, then everyone votes the winner. Winners get +50 MMR and losers −50, adjusted for streaks, and setup option 21 posts every result to a match history channel.</p>
+        </details>
+        <details>
+          <summary>What games can my Discord server play with Reiner?<svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#plus"/></svg></summary>
+          <p>Imposter, a social deduction word game themed on League champions, items and terms (/imposter). A live League quiz where members guess champions from splash art, abilities, lore and titles (/quizz). And a daily League question (/dailyq), posted every day at 20:00.</p>
+        </details>
+        <details>
+          <summary>Why do I need a role called DEV?<svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#plus"/></svg></summary>
+          <p>Reiner uses a role named exactly DEV to decide who can run setup and admin commands, open the dashboard and manage points. Create it in Server Settings → Roles and give it to yourself and any co-admins.</p>
+        </details>
+        <details>
+          <summary>Why isn't Reiner responding to setup commands?<svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#plus"/></svg></summary>
+          <p>Check three things: you have the DEV role (exact spelling), you're in the admin channel you set with “@Reiner admin channel here”, and you actually mentioned the bot with @Reiner.</p>
+        </details>
+        <details>
+          <summary>How do I log in to the Reiner dashboard?<svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#plus"/></svg></summary>
+          <p>Run /dashboard in your server (DEV role required). Reiner DMs you a private login link that lasts 24 hours and only works for your server. There's no separate account or password. If /dashboard isn't available yet, run setup wizard option 20.</p>
+        </details>
+        <details>
+          <summary>Does Reiner have a points and leveling system?<svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#plus"/></svg></summary>
+          <p>Yes. Members earn points from lobbies and activity (chat and voice time), and climb rank roles from Unranked through Bronze, Silver, Gold and Diamond to Master. /me shows your progress and /ld the leaderboard. Admins can switch activity points off so lobbies are the only way to earn.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ Contact ════════ -->
+  <section class="sec contact" id="contact" aria-labelledby="contact-title">
+    <div class="site-wrap contact-grid">
+      <div class="rv">
+        <p class="label"><b>04</b> Contact</p>
+        <h2 class="h-sec" id="contact-title">Talk to the builder. <em>Bugs, ideas, partnerships.</em></h2>
+        <p class="lead">Messages go straight to Youssef, the developer behind Reiner.</p>
+        <ul class="c-lines">
+          <li><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#mail"/></svg><a href="mailto:yousseftimoumi@reinersbot.space">yousseftimoumi@reinersbot.space</a></li>
+          <li><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#github"/></svg><a href="https://github.com/youssef1timoumi" rel="noopener">github.com/youssef1timoumi</a></li>
+          <li><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#book"/></svg><a href="/docs/">Docs and troubleshooting</a></li>
+        </ul>
+      </div>
+
+      <form class="c-form rv" id="contact-form" data-to="yousseftimoumi@reinersbot.space" novalidate>
+        <div class="c-row">
+          <label for="c-name">Name</label>
+          <input id="c-name" name="name" autocomplete="name" required maxlength="80">
+        </div>
+        <div class="c-row">
+          <label for="c-topic">Topic</label>
+          <select id="c-topic" name="topic">
+            <option>Question</option>
+            <option>Bug report</option>
+            <option>Feature request</option>
+            <option>Partnership</option>
+          </select>
+        </div>
+        <div class="c-row">
+          <label for="c-msg">Message</label>
+          <textarea id="c-msg" name="message" rows="5" required maxlength="2000"></textarea>
+        </div>
+        <div class="c-hp" aria-hidden="true">
+          <label for="c-web">Website</label>
+          <input id="c-web" name="website" tabindex="-1" autocomplete="off">
+        </div>
+        <p class="c-err" id="c-err" role="alert"></p>
+        <button class="s-cta btn-shine c-send" type="submit"><span>Send message</span>
+          <span class="s-knob" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9.5 6 6 6-6 6"/></svg></span></button>
+        <p class="c-note" aria-live="polite">Goes straight to the developer. Prefer email? <a href="mailto:yousseftimoumi@reinersbot.space">yousseftimoumi@reinersbot.space</a></p>
+      </form>
+    </div>
+  </section>
+  </main>
+  <!-- partial:footer -->
+  <footer class="foot">
+    <div class="site-wrap foot-grid">
+      <div class="foot-brand">
+        <a class="s-brand" href="/" aria-label="Reiner home">
+          <span class="ring conic-ring"><img src="/assets/logo-112.webp" alt="" width="36" height="36" loading="lazy"></span>
+          <b>Reiner</b>
+        </a>
+        <p>The all-in-one Discord bot for League of Legends communities: custom lobbies, mini-games, ranks and a web Command Center.</p>
+        <a class="s-cta btn-shine" href="https://discord.com/oauth2/authorize?client_id=1346151882518827008&amp;permissions=8&amp;integration_type=0&amp;scope=bot" rel="noopener">
+          <span>Add Bot to Discord</span>
+          <span class="s-knob" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9.5 6 6 6-6 6"/></svg></span>
+        </a>
+      </div>
+      <nav class="foot-col" aria-label="Product">
+        <p class="foot-h">Product</p>
+        <a href="/features/">Features</a>
+        <a href="/#preview">Live preview</a>
+        <a href="/#how">How to use</a>
+        <a href="/dashboard/">Dashboard</a>
+      </nav>
+      <nav class="foot-col" aria-label="Help">
+        <p class="foot-h">Help</p>
+        <a href="/docs/">Docs</a>
+        <a href="/docs/#troubleshooting">Troubleshooting</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+      <nav class="foot-col" aria-label="Legal and contact">
+        <p class="foot-h">Company</p>
+        <a href="mailto:yousseftimoumi@reinersbot.space">yousseftimoumi@reinersbot.space</a>
+        <a href="https://github.com/youssef1timoumi" rel="noopener">GitHub</a>
+        <a href="/privacy/">Privacy policy</a>
+        <a href="/terms/">Terms of service</a>
+      </nav>
+    </div>
+    <div class="site-wrap foot-base">
+      <span>© 2026 Reiner. Not affiliated with Riot Games or Discord.</span>
+      <span>Built by <a href="https://github.com/youssef1timoumi" rel="noopener">Youssef “Reiner” Timoumi</a></span>
+    </div>
+  </footer>
+  <!-- /partial:footer -->
+
+  <script src="/js/entrance.js" defer></script>
+  <script src="/js/menu.js" defer></script>
+  <script src="/js/media.js" defer></script>
+  <script src="/js/site.js" defer></script>
+  <script src="/js/showcase.js" defer></script>
+  <script src="/js/home.js" defer></script>
+</body>
+</html>

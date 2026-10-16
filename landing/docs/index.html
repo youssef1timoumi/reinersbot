@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#05040b">
+  <title>Docs — Reiner Discord Bot: Setup, Lobbies, MMR and Commands</title>
+  <meta name="description" content="How to set up and use Reiner: the DEV role, admin channel and setup wizard, League custom lobbies and MMR, Imposter and the live quiz, the web dashboard, and every slash command.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://reinersbot.space/docs/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Reiner">
+  <meta property="og:url" content="https://reinersbot.space/docs/">
+  <meta property="og:title" content="Reiner Docs — setup, lobbies, MMR and commands">
+  <meta property="og:description" content="Everything you need to run Reiner in your Discord server.">
+  <meta property="og:image" content="https://reinersbot.space/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://reinersbot.space/assets/og.png">
+
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/assets/icon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <script src="/js/boot.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/motion.css">
+  <link rel="stylesheet" href="/css/site.css">
+  <link rel="stylesheet" href="/css/discord.css">
+  <link rel="stylesheet" href="/css/home.css">
+  <link rel="stylesheet" href="/css/docs.css">
+  <script type="application/ld+json">
+ {"@context":"https://schema.org","@graph":[
+  {"@type":"BreadcrumbList","itemListElement":[
+   {"@type":"ListItem","position":1,"name":"Home","item":"https://reinersbot.space/"},
+   {"@type":"ListItem","position":2,"name":"Docs","item":"https://reinersbot.space/docs/"}]},
+  {"@type":"TechArticle","headline":"Reiner Docs","description":"Setup, League custom lobbies, MMR, mini-games, the web dashboard and slash commands for the Reiner Discord bot.",
+   "url":"https://reinersbot.space/docs/","inLanguage":"en","dateModified":"2026-10-16",
+   "author":{"@type":"Person","name":"Youssef Timoumi","url":"https://github.com/youssef1timoumi"},
+   "publisher":{"@type":"Organization","name":"Reiner","url":"https://reinersbot.space/","logo":"https://reinersbot.space/assets/icon-512.png"}}]}
+  </script>
+</head>
+<body class="site">
+  <a class="skip" href="#article">Skip to content</a>
+  <!-- partial:topbar active=docs -->
+  <header class="topbar">
+    <div class="topbar-in site-wrap">
+      <a class="s-brand" href="/" aria-label="Reiner home">
+        <span class="ring conic-ring"><img src="/assets/logo-112.webp" alt="" width="36" height="36"></span>
+        <b>Reiner</b>
+      </a>
+      <nav class="s-nav" aria-label="Primary">
+        <a href="/features/">Features</a>
+        <a class="nav-opt" href="/#how">How to use</a>
+        <a href="/docs/" aria-current="page">Docs</a>
+      </nav>
+      <a class="s-cta btn-shine" href="https://discord.com/oauth2/authorize?client_id=1346151882518827008&amp;permissions=8&amp;integration_type=0&amp;scope=bot" rel="noopener">
+        <span>Add Bot<span class="wide"> to Discord</span></span>
+        <span class="s-knob" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9.5 6 6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </header>
+  <!-- /partial:topbar -->
+
+  <div class="sub-glow" aria-hidden="true"></div>
+
+  <main id="main">
+    <header class="page-head site-wrap">
+      <ol class="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">Docs</li></ol>
+      <h1 class="h-display"><span class="text-shimmer">Docs</span></h1>
+      <p class="lead">Everything you need to run Reiner: setup, League custom lobbies and MMR, the mini-games, the web dashboard, and every command.</p>
+    </header>
+
+    <div class="site-wrap docs-grid">
+      <nav class="toc" aria-label="Docs sections">
+        <div class="toc-in">
+          <details id="toc-d" open>
+            <summary>Sections <svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#chevron-right"/></svg></summary>
+            <div class="toc-groups">
+              <div><p class="toc-h">Getting started</p>
+                <a href="#quick-start"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#zap"/></svg>Quick start</a>
+                <a href="#dev-role"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#shield"/></svg>The DEV role</a>
+                <a href="#admin-channel"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#lock"/></svg>Admin channel</a>
+                <a href="#setup"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#sliders"/></svg>Setup wizard</a>
+              </div>
+              <div><p class="toc-h">Games</p>
+                <a href="#imposter"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#user-question"/></svg>Imposter</a>
+                <a href="#quiz"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#help"/></svg>League quiz</a>
+              </div>
+              <div><p class="toc-h">Custom lobbies</p>
+                <a href="#lobby-flow"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#gamepad"/></svg>How a lobby runs</a>
+                <a href="#dev-votes"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#ballot"/></svg>DEV vote power</a>
+                <a href="#match-history"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#trophy"/></svg>Match history</a>
+              </div>
+              <div><p class="toc-h">Points &amp; MMR</p>
+                <a href="#mmr"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#trending-up"/></svg>MMR &amp; ranks</a>
+                <a href="#toggles"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#activity"/></svg>League-only &amp; nicknames</a>
+              </div>
+              <div><p class="toc-h">Dashboard</p>
+                <a href="#login"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#lock"/></svg>Logging in</a>
+                <a href="#edit-mmr"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#trophy"/></svg>Edit MMR</a>
+                <a href="#channels"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#hash"/></svg>Channels &amp; messaging</a>
+                <a href="#channel-setup"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#target"/></svg>Channel setup</a>
+              </div>
+              <div><p class="toc-h">Reference</p>
+                <a href="#commands"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#message"/></svg>All slash commands</a>
+                <a href="#troubleshooting"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#lifebuoy"/></svg>Troubleshooting</a>
+                <a href="#contact"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#mail"/></svg>Contact</a>
+              </div>
+            </div>
+          </details>
+        </div>
+      </nav>
+
+      <article id="article">
+        <!-- ═══ Getting started ═══ -->
+        <div class="doc-group">
+          <p class="label"><b>01</b> Getting started</p>
+
+          <section class="doc" id="quick-start">
+            <h2><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#zap"/></svg>Quick start<a class="anchor" href="#quick-start" aria-label="Link to Quick start">#</a></h2>
+            <ol class="flow">
+              <li><span><a class="tlink" href="https://discord.com/oauth2/authorize?client_id=1346151882518827008&amp;permissions=8&amp;integration_type=0&amp;scope=bot" rel="noopener">Add Reiner to your server</a> and drag its role near the top of Server Settings → Roles.</span></li>
+              <li><span>Create a role named exactly <code class="k">DEV</code> and give it to yourself.</span></li>
+              <li><span>In a private channel, send <code class="k">@Reiner admin channel here</code>.</span></li>
+              <li><span>Send <code class="k">@Reiner start setup</code> and reply <code class="k">6</code> to set up everything.</span></li>
+              <li><span>Run <code class="k">/dashboard</code> to get a 24-hour login link to the Command Center.</span></li>
+            </ol>
+          </section>
+
+          <section class="doc" id="dev-role">
+            <h2><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#shield"/></svg>The DEV role<a class="anchor" href="#dev-role" aria-label="Link to The DEV role">#</a></h2>
+            <p>Reiner decides who's staff by a role named <b>DEV</b>. It checks the role's name, not its permissions, so the name must match exactly, in capitals. Members with DEV can run the setup wizard, set the admin channel, open the dashboard and manage points.</p>
+            <p>DEV members are excluded from MMR, and in League votes a DEV vote counts as 999 (see <a class="tlink" href="#dev-votes">DEV vote power</a>).</p>
+            <div class="note warn"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#help"/></svg><span>Without the role, Reiner replies <i>“You need the DEV role to start setup.”</i></span></div>
+          </section>
+
+          <section class="doc" id="admin-channel">
+            <h2><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#lock"/></svg>Admin channel<a class="anchor" href="#admin-channel" aria-label="Link to Admin channel">#</a></h2>
+            <p>Create a private text channel, then mention the bot there. From then on, admin commands only work in this channel.</p>
+            <div class="cmd"><code><span class="men">@Reiner</span> admin channel here</code><button class="copy" type="button" data-copy="@Reiner admin channel here"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#copy"/></svg><span class="copy-t">Copy</span></button></div>
+            <div class="reply"><img src="/assets/logo-112.webp" alt="" width="24" height="24" loading="lazy"><span><b>Reiner</b> <svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#check-circle"/></svg>This channel has been set as the admin channel. All admin commands must now be used here.</span></div>
+          </section>
+
+          <section class="doc" id="setup">
+            <h2><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#sliders"/></svg>Setup wizard<a class="anchor" href="#setup" aria-label="Link to Setup wizard">#</a></h2>
+            <p>Mention the bot with <code class="k">start setup</code> (DEV role, in the admin channel), then reply with a number:</p>
+            <div class="cmd"><code><span class="men">@Reiner</span> start setup</code><button class="copy" type="button" data-copy="@Reiner start setup"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#copy"/></svg><span class="copy-t">Copy</span></button></div>
+            <dl class="kv wiz">
+              <div><dt class="num">1</dt><dd style="font-weight:400">Register all slash commands</dd></div>
+              <div><dt class="num">5</dt><dd style="font-weight:400">Points (MMR) system and rank roles</dd></div>
+              <div><dt class="num">16</dt><dd style="font-weight:400">League custom lobbies: queue and team channels</dd></div>
+              <div><dt class="num">21</dt><dd style="font-weight:400">Match history channel</dd></div>
+              <div><dt class="num">20</dt><dd style="font-weight:400">Dashboard access: installs /dashboard and DMs you a link</dd></div>
+              <div><dt class="num">19</dt><dd style="font-weight:400">Toggle points on nicknames</dd></div>
+              <div><dt class="num">14</dt><dd style="font-weight:400">Natural-language bot</dd></div>
+              <div><dt class="num">15</dt><dd style="font-weight:400">Daily League quiz channel</dd></div>
+              <div><dt class="num">9</dt><dd style="font-weight:400">Auto-greet and auto-leave messages</dd></div>
+              <div><dt class="num">6</dt><dd style="font-weight:400"><b>Complete setup</b>: runs everything above</dd></div>
+            </dl>
+          </section>
+        </div>
+
+        <!-- ═══ Games ═══ -->
+        <div class="doc-group">
+          <p class="label"><b>02</b> Games</p>
+
+          <section class="doc" id="imposter">
+            <h2><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#user-question"/></svg>Imposter<a class="anchor" href="#imposter" aria-label="Link to Imposter">#</a></h2>
+            <p>A social deduction word game played in a voice channel. Everyone gets the same secret word, except the imposter(s), who get a blank. Players take turns dropping subtle hints, then everyone votes on who they think the imposter is. A great warm-up before custom lobbies.</p>
+            <p><b>How to play:</b> join a voice channel and run <code class="k">/imposter</code>. The bot DMs each player their word (or “imposter”), runs the hint rounds, then the vote.</p>
+            <div class="preview"><span class="preview-l">What players see</span>
+              <div class="dwin"><div class="dwin-body"><div class="dm-pair">
+                <div class="dm-card"><small>Your secret word</small><b>Baron Nashor</b><span>Crew member</span></div>
+                <div class="dm-card bad"><small>Your secret word</small><b>? ? ?</b><span>You are the imposter</span></div>
+              </div></div></div>
+            </div>
+          </section>
+
+          <section class="doc" id="quiz">
+            <h2><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#help"/></svg>League of Legends quiz<a class="anchor" href="#quiz" aria-label="Link to League quiz">#</a></h2>
+            <p>A live, on-demand League quiz. Members guess the champion from cropped splash art, ability icons and descriptions, lore excerpts, titles and skins, answered through the dropdown on the question. Correct answers earn points and build a streak bonus.</p>
+            <p><b>How to start:</b> run <code class="k">/quizz</code> in any channel. Rewards: <span class="up">+5</span> per correct answer, with streak bonuses up to <span class="up">+10</span>. Setup option <code class="k">15</code> adds a daily League question.</p>
+            <div class="preview"><span class="preview-l">Try it live · one question, no login</span>
+              <div class="quiz" id="quiz-box" aria-live="polite">
+                <div class="quiz-top"><b>Live · try it</b><span>The bot's real quiz engine</span></div>
+                <div class="quiz-body"><div class="quiz-img loading"></div></div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- ═══ Lobbies ═══ -->
+        <div class="doc-group">
+          <p class="label"><b>03</b> League custom lobbies</p>
+
+          <section class="doc" id="lobby-flow">
+            <h2><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#gamepad"/></svg>How a lobby runs<a class="anchor" href="#lobby-flow" aria-label="Link to How a lobby runs">#</a></h2>
+            <ol class="flow">
+              <li><span>Players join the <b>Queue Lobby</b> voice channel.</span></li>
+              <li><span>Members vote on the team format; the bot moves everyone into <b>Team 1</b> and <b>Team 2</b>.</span></li>
+              <li><span>Roles are decided, you play the game, then everyone votes the winner.</span></li>
+              <li><span>MMR is paid out and the result posts to your match-history channel.</span></li>
+            </ol>
+            <div class="note"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#sliders"/></svg><span><b>Set it up:</b> <code class="k">@Reiner start setup</code> → option <code class="k">16</code>. The bot needs the <b>Move Members</b> permission to move players into team channels.</span></div>
+            <div class="preview"><span class="preview-l">Match result post</span>
+              <div class="dwin"><div class="dwin-body">
+                <div class="em" style="--em:#7c3aed;margin:0;max-width:none"><b class="em-t">Match complete · Blue team wins</b>
+                  <div class="em-b"><div class="em-cols">
+                    <div><b style="color:#7dd3fc">Blue team</b><span>ShadowReaper <span class="up">+50</span></span><span>Kayzo <span class="up">+50</span></span></div>
+                    <div><b style="color:#fca5a5">Red team</b><span>Nightfall <span class="down">−50</span></span><span>mina <span class="down">−50</span></span></div>
+                  </div></div></div>
+              </div></div>
+            </div>
+          </section>
+
+          <section class="doc" id="dev-votes">
+            <h2><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#ballot"/></svg>DEV vote power<a class="anchor" href="#dev-votes" aria-label="Link to DEV vote power">#</a></h2>
+            <p>In every League vote (team format, captain and player picks, role mode, and the winner), a vote from a <b>DEV</b> member weighs <b>999</b> instead of 1. A single DEV vote overrides the lobby and decides the outcome instantly, so staff can settle a result or push teams through without waiting on everyone. Regular members always count as 1.</p>
+            <div class="preview"><span class="preview-l">Winner vote with one DEV</span>
+              <div class="dwin"><div class="dwin-body"><div class="vbars">
+                <div class="vbar"><small><span>Blue (incl. 1 DEV)</span><b>999</b></small><div><i style="--w:97%;--c:#38bdf8"></i></div></div>
+                <div class="vbar"><small><span>Red</span><b>3</b></small><div><i style="--w:3%;--c:#f87171"></i></div></div>
+              </div></div></div>
+            </div>
+          </section>
+
+          <section class="doc" id="match-history">
+            <h2><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#trophy"/></svg>Match history<a class="anchor" href="#match-history" aria-label="Link to Match history">#</a></h2>
+            <p>Pick any text channel and every finished lobby's result is posted there automatically: a running log of who beat who, with each player's MMR change.</p>
+            <p><b>Set it up:</b> setup option <code class="k">21</code>, or right-click a text channel on the dashboard → <i>Set as match history channel</i>.</p>
+          </section>
+        </div>
+
+        <!-- ═══ Points ═══ -->
+        <div class="doc-group">
+          <p class="label"><b>04</b> Points &amp; MMR</p>
+
+          <section class="doc" id="mmr">
+            <h2><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#trending-up"/></svg>MMR &amp; ranks<a class="anchor" href="#mmr" aria-label="Link to MMR and ranks">#</a></h2>
+            <p>Every member has an MMR number and a rank that follows it. A normal win is <span class="up">+50</span> and a normal loss <span class="down">−50</span>, but recent form bends the number: a comeback win after losses gives less, and a loss after a strong win streak is cushioned. Voting for the winner is always <span class="up">+2</span>. DEV and NPC members are excluded from MMR.</p>
+            <dl class="kv">
+              <div><dt>Win (normal or on a win streak)</dt><dd class="up">+50</dd></div>
+              <div><dt>Comeback win (after a 1–3 loss streak)</dt><dd class="up">+30</dd></div>
+              <div><dt>Win after a long 4+ loss streak</dt><dd class="up">+5</dd></div>
+              <div><dt>Loss (normal or on a loss streak)</dt><dd class="down">−50</dd></div>
+              <div><dt>Loss after a 1–3 win streak</dt><dd class="down">−30</dd></div>
+              <div><dt>Loss after a long 4+ win streak</dt><dd class="down">−5</dd></div>
+              <div><dt>Placement loss (first 3 games)</dt><dd class="down">−30</dd></div>
+              <div><dt>Voting for the winner</dt><dd class="up">+2</dd></div>
+            </dl>
+            <div class="preview"><span class="preview-l">Rank tiers</span>
+              <div class="dwin"><div class="dwin-body">
+                <div class="lb">
+                  <div class="lb-row" style="grid-template-columns:minmax(0,1fr) auto"><span class="lb-name"><i class="rk" style="--r:#4a4a4a">Iron</i></span><span class="lb-pts">below 0</span></div>
+                  <div class="lb-row" style="grid-template-columns:minmax(0,1fr) auto"><span class="lb-name"><i class="rk" style="--r:#95a5a6">Unranked</i></span><span class="lb-pts">0 – 9</span></div>
+                  <div class="lb-row" style="grid-template-columns:minmax(0,1fr) auto"><span class="lb-name"><i class="rk" style="--r:#cd7f32">Bronze</i></span><span class="lb-pts">10 – 199</span></div>
+                  <div class="lb-row" style="grid-template-columns:minmax(0,1fr) auto"><span class="lb-name"><i class="rk" style="--r:#c0c0c0">Silver</i></span><span class="lb-pts">200 – 999</span></div>
+                  <div class="lb-row" style="grid-template-columns:minmax(0,1fr) auto"><span class="lb-name"><i class="rk" style="--r:#ffd700">Gold</i></span><span class="lb-pts">1,000 – 4,999</span></div>
+                  <div class="lb-row" style="grid-template-columns:minmax(0,1fr) auto"><span class="lb-name"><i class="rk" style="--r:#b9f2ff">Diamond</i></span><span class="lb-pts">5,000 – 9,999</span></div>
+                  <div class="lb-row" style="grid-template-columns:minmax(0,1fr) auto"><span class="lb-name"><i class="rk" style="--r:#ff6b6b">Master</i></span><span class="lb-pts">10,000 +</span></div>
+                </div>
+              </div></div>
+            </div>
+            <div class="note"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#sliders"/></svg><span><b>Set it up:</b> setup option <code class="k">5</code>.</span></div>
+          </section>
+
+          <section class="doc" id="toggles">
+            <h2><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#activity"/></svg>League-only &amp; nicknames<a class="anchor" href="#toggles" aria-label="Link to League-only and nicknames">#</a></h2>
+            <p>Two toggles live in the dashboard under <b>Settings</b>:</p>
+            <div class="toggles">
+              <div class="toggle"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#activity"/></svg><div><b>Activity points</b><p>Earn MMR from chatting and voice time. Turn this off so League custom lobbies are the only way to gain MMR.</p></div></div>
+              <div class="toggle"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#tag"/></svg><div><b>Points on nicknames</b><p>Show each member's MMR as <b>Name [123]</b> on their nickname. On for a visible ladder, off to keep names clean. Also setup option <code class="k">19</code>.</p></div></div>
+            </div>
+          </section>
+        </div>
+
+        <!-- ═══ Dashboard ═══ -->
+        <div class="doc-group">
+          <p class="label"><b>05</b> Dashboard</p>
+
+          <section class="doc" id="login">
+            <h2><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#lock"/></svg>Logging in<a class="anchor" href="#login" aria-label="Link to Logging in">#</a></h2>
+            <p>Run <code class="k">/dashboard</code> in your server (needs the <b>DEV</b> role). The bot DMs you a private login link, valid for <b>24 hours</b> and scoped to your server only. If your DMs are closed, it shows you the link privately instead. Super admins sign in with a username and password and can manage every server.</p>
+            <div class="reply"><img src="/assets/logo-112.webp" alt="" width="24" height="24" loading="lazy"><span><b>Reiner</b> <svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#check-circle"/></svg>I sent your 24-hour login link to your <b>DMs</b>.</span></div>
+            <p style="margin-top:14px"><a class="tlink" href="/dashboard/">Open the dashboard <svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#arrow-right"/></svg></a></p>
+          </section>
+
+          <section class="doc" id="edit-mmr">
+            <h2><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#trophy"/></svg>Leaderboard &amp; editing MMR<a class="anchor" href="#edit-mmr" aria-label="Link to Edit MMR">#</a></h2>
+            <p>The <b>Points</b> tab shows the live leaderboard. Hit <b>Edit</b> on anyone to add, remove, set or reset their MMR. It syncs straight to Discord, so ranks and nicknames update. Search a member by name to adjust them even at 0.</p>
+            <div class="preview"><span class="preview-l">Points tab</span>
+              <div class="dwin"><div class="dwin-body"><div class="lb">
+                <div class="lb-row"><span class="lb-pos">#1</span><span class="lb-av">SH</span><span class="lb-name"><span>ShadowReaper</span><i class="rk" style="--r:#ff6b6b">Master</i></span><span class="lb-pts">12,480</span><span class="lb-edit">Edit</span></div>
+                <div class="lb-row"><span class="lb-pos">#2</span><span class="lb-av">NI</span><span class="lb-name"><span>Nightfall</span><i class="rk" style="--r:#b9f2ff">Diamond</i></span><span class="lb-pts">6,210</span><span class="lb-edit">Edit</span></div>
+                <div class="lb-row"><span class="lb-pos">#3</span><span class="lb-av">KA</span><span class="lb-name"><span>Kayzo</span><i class="rk" style="--r:#ffd700">Gold</i></span><span class="lb-pts">1,845</span><span class="lb-edit">Edit</span></div>
+                <div class="lb-row"><span class="lb-pos">#4</span><span class="lb-av">MI</span><span class="lb-name"><span>mina</span><i class="rk" style="--r:#c0c0c0">Silver</i></span><span class="lb-pts">430</span><span class="lb-edit">Edit</span></div>
+              </div></div></div>
+            </div>
+          </section>
+
+          <section class="doc" id="channels">
+            <h2><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#hash"/></svg>Channels &amp; messaging<a class="anchor" href="#channels" aria-label="Link to Channels and messaging">#</a></h2>
+            <p>The <b>Channels</b> tab lists every text and voice channel in real Discord order. Left-click a text channel to <b>send a message or rich embed</b> as the bot; left-click a voice channel to make the bot <b>join or leave</b>. Right-click any channel for more actions.</p>
+            <div class="preview"><span class="preview-l">Right-click menu</span>
+              <div class="ctx">
+                <div><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#volume"/></svg>Join voice</div>
+                <div><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#gamepad"/></svg>League of Legends<svg class="ic chev" aria-hidden="true"><use href="/assets/icons.svg#chevron-right"/></svg></div>
+                <div class="sub"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#target"/></svg>Set as Queue Lobby</div>
+                <div class="sub"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#users"/></svg>Set as Team 1 voice</div>
+                <div class="sub"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#users"/></svg>Set as Team 2 voice</div>
+                <hr>
+                <div><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#copy"/></svg>Copy channel ID</div>
+              </div>
+            </div>
+          </section>
+
+          <section class="doc" id="channel-setup">
+            <h2><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#target"/></svg>Channel setup &amp; settings<a class="anchor" href="#channel-setup" aria-label="Link to Channel setup">#</a></h2>
+            <p>Right-click a channel on the dashboard to assign it instantly:</p>
+            <dl class="kv">
+              <div><dt>Queue Lobby / Team 1 / Team 2</dt><dd style="font-weight:400;color:var(--muted)">voice</dd></div>
+              <div><dt>Post the League queue</dt><dd style="font-weight:400;color:var(--muted)">text</dd></div>
+              <div><dt>Match history channel</dt><dd style="font-weight:400;color:var(--muted)">text</dd></div>
+              <div><dt>Admin channel</dt><dd style="font-weight:400;color:var(--muted)">text</dd></div>
+              <div><dt>Support channel</dt><dd style="font-weight:400;color:var(--muted)">text</dd></div>
+            </dl>
+            <p style="margin-top:14px">The <b>Settings</b> tab holds the activity-points and points-on-nicknames toggles.</p>
+          </section>
+        </div>
+
+        <!-- ═══ Reference ═══ -->
+        <div class="doc-group">
+          <p class="label"><b>06</b> Reference</p>
+
+          <section class="doc" id="commands">
+            <h2><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#message"/></svg>All slash commands<a class="anchor" href="#commands" aria-label="Link to All slash commands">#</a></h2>
+            <p>Register them with setup option <code class="k">1</code>.</p>
+            <div class="cmd-grid">
+              <div class="cmd-card"><h3>Points &amp; MMR</h3><div><code>/ld</code><span>MMR leaderboard</span><code>/me</code><span>Your MMR and rank</span><code>/pt</code><span>Add or remove MMR (staff)</span><code>/resetpoints</code><span>Reset a member (staff)</span><code>/syncranks</code><span>Re-sync rank roles</span></div></div>
+              <div class="cmd-card"><h3>League</h3><div><code>/sendqueue</code><span>Post a queue lobby</span><code>/syncparty</code><span>Build teams from voice</span><code>/join</code><span>Bot rejoins Reiner's Wall (DEV)</span><code>/quit</code><span>Bot leaves voice</span></div></div>
+              <div class="cmd-card"><h3>Games</h3><div><code>/imposter</code><span>Imposter word game</span><code>/quizz</code><span>Live League quiz</span><code>/dailyq</code><span>Daily League question</span></div></div>
+              <div class="cmd-card"><h3>Dashboard &amp; help</h3><div><code>/dashboard</code><span>24h dashboard link (DEV)</span><code>/help</code><span>Command guide</span><code>/reinerhelp</code><span>Member quick-help</span><code>/ai</code><span>Ask the AI</span><code>/message</code><span>Send as the bot</span></div></div>
+              <div class="cmd-card"><h3>Productivity</h3><div><code>/timer</code><span>Start a timer</span><code>/stoptimer</code><span>Stop and save</span><code>/resume</code><span>Resume a timer</span><code>/tasks</code><span>Manage tasks</span><code>/flex</code><span>Share an achievement</span></div></div>
+            </div>
+          </section>
+
+          <section class="doc" id="troubleshooting">
+            <h2><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#lifebuoy"/></svg>Troubleshooting<a class="anchor" href="#troubleshooting" aria-label="Link to Troubleshooting">#</a></h2>
+            <dl class="kv" style="max-width:none">
+              <div><dt>“You need the DEV role…”</dt><dd style="font-weight:400;color:var(--muted);white-space:normal;text-align:right">Create a role named exactly DEV and assign it to yourself.</dd></div>
+              <div><dt>Admin command ignored</dt><dd style="font-weight:400;color:var(--muted);white-space:normal;text-align:right">Use it in the channel set with @Reiner admin channel here.</dd></div>
+              <div><dt>Setup doesn't respond</dt><dd style="font-weight:400;color:var(--muted);white-space:normal;text-align:right">Mention the bot (@Reiner), not just the word “Reiner”.</dd></div>
+              <div><dt>Rank roles don't update</dt><dd style="font-weight:400;color:var(--muted);white-space:normal;text-align:right">Move Reiner's role above them in Server Settings → Roles.</dd></div>
+              <div><dt>Players aren't moved to teams</dt><dd style="font-weight:400;color:var(--muted);white-space:normal;text-align:right">Give Reiner the Move Members permission.</dd></div>
+              <div><dt>No /dashboard command</dt><dd style="font-weight:400;color:var(--muted);white-space:normal;text-align:right">Run setup option 20, or 1 to register all commands.</dd></div>
+            </dl>
+          </section>
+
+          <section class="doc" id="contact">
+            <h2><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#mail"/></svg>Contact<a class="anchor" href="#contact" aria-label="Link to Contact">#</a></h2>
+            <p>Still stuck, found a bug or want a feature? Email <a class="tlink" href="mailto:yousseftimoumi@reinersbot.space">yousseftimoumi@reinersbot.space</a> or use the <a class="tlink" href="/#contact">contact form</a>.</p>
+          </section>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <!-- partial:footer -->
+  <footer class="foot">
+    <div class="site-wrap foot-grid">
+      <div class="foot-brand">
+        <a class="s-brand" href="/" aria-label="Reiner home">
+          <span class="ring conic-ring"><img src="/assets/logo-112.webp" alt="" width="36" height="36" loading="lazy"></span>
+          <b>Reiner</b>
+        </a>
+        <p>The all-in-one Discord bot for League of Legends communities: custom lobbies, mini-games, ranks and a web Command Center.</p>
+        <a class="s-cta btn-shine" href="https://discord.com/oauth2/authorize?client_id=1346151882518827008&amp;permissions=8&amp;integration_type=0&amp;scope=bot" rel="noopener">
+          <span>Add Bot to Discord</span>
+          <span class="s-knob" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9.5 6 6 6-6 6"/></svg></span>
+        </a>
+      </div>
+      <nav class="foot-col" aria-label="Product">
+        <p class="foot-h">Product</p>
+        <a href="/features/">Features</a>
+        <a href="/#preview">Live preview</a>
+        <a href="/#how">How to use</a>
+        <a href="/dashboard/">Dashboard</a>
+      </nav>
+      <nav class="foot-col" aria-label="Help">
+        <p class="foot-h">Help</p>
+        <a href="/docs/">Docs</a>
+        <a href="/docs/#troubleshooting">Troubleshooting</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+      <nav class="foot-col" aria-label="Legal and contact">
+        <p class="foot-h">Company</p>
+        <a href="mailto:yousseftimoumi@reinersbot.space">yousseftimoumi@reinersbot.space</a>
+        <a href="https://github.com/youssef1timoumi" rel="noopener">GitHub</a>
+        <a href="/privacy/">Privacy policy</a>
+        <a href="/terms/">Terms of service</a>
+      </nav>
+    </div>
+    <div class="site-wrap foot-base">
+      <span>© 2026 Reiner. Not affiliated with Riot Games or Discord.</span>
+      <span>Built by <a href="https://github.com/youssef1timoumi" rel="noopener">Youssef “Reiner” Timoumi</a></span>
+    </div>
+  </footer>
+  <!-- /partial:footer -->
+
+  <script src="/js/site.js" defer></script>
+  <script src="/js/docs.js" defer></script>
+</body>
+</html>

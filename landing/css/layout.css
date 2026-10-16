@@ -1,0 +1,85 @@
+/* Frame, background plate and the --u comp positioning system. */
+
+*,*::before,*::after{box-sizing:border-box}
+img,svg{display:block}
+
+/* .page is the first screen of the home page: exactly one small-viewport tall
+   (svh, so it doesn't resize while mobile browser chrome shows/hides), with the
+   showcase and how-to sections scrolling in below it. It sits above body's
+   grid/aurora layers (z-index 1) but stays see-through: body already paints
+   var(--bg), so those layers stay visible behind the fallback plate. */
+.page{position:relative;height:100vh;z-index:1;background:transparent}
+@supports (height:100svh){.page{height:100svh}}
+.card{position:absolute;inset:0;isolation:isolate;overflow:hidden}
+
+/* ── Background plate (video) ── */
+.bg{position:absolute;left:-2px;top:-2px;
+  width:calc(100vw + 4px);height:calc(100vh + 4px);object-fit:cover;
+  object-position:50% 50%;z-index:0;transform:scale(1.002);
+  opacity:0;transition:opacity 1.2s ease}
+@supports (height:100svh){.bg{height:calc(100svh + 4px)}}
+.card.video-ready .bg{opacity:1}
+.card.no-video .bg{display:none}
+
+.tint{position:absolute;inset:0;background:rgba(10,6,20,.15);z-index:1;pointer-events:none}
+
+/* ── CSS fallback plate — always underneath, hidden once the clip is playing ── */
+.backdrop{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.card.video-ready .backdrop{visibility:hidden;transition:visibility 0s linear 1.2s}
+
+.bd-grid{position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(124,58,237,.11) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(124,58,237,.11) 1px,transparent 1px);
+  background-size:calc(46*var(--u)) calc(46*var(--u));
+  -webkit-mask-image:radial-gradient(ellipse 85% 60% at 50% -5%,black 30%,transparent 80%);
+  mask-image:radial-gradient(ellipse 85% 60% at 50% -5%,black 30%,transparent 80%)}
+
+.bd-aurora{position:absolute;inset:-25%;
+  background:
+    radial-gradient(38% 38% at 18% 28%,rgba(124,58,237,.38),transparent 70%),
+    radial-gradient(32% 32% at 82% 18%,rgba(56,232,192,.17),transparent 70%),
+    radial-gradient(44% 44% at 62% 82%,rgba(124,58,237,.26),transparent 70%);
+  filter:blur(42px);
+  animation:aurora-drift 26s ease-in-out infinite alternate}
+
+.stars{position:absolute;inset:0 0 30% 0;opacity:.7;
+  background-image:
+    radial-gradient(calc(1.6*var(--u)) calc(1.6*var(--u)) at 8% 14%,#fff,transparent),
+    radial-gradient(calc(1.2*var(--u)) calc(1.2*var(--u)) at 23% 42%,#c4b5fd,transparent),
+    radial-gradient(calc(1.8*var(--u)) calc(1.8*var(--u)) at 37% 9%,#fff,transparent),
+    radial-gradient(calc(1.2*var(--u)) calc(1.2*var(--u)) at 52% 31%,#a5f3fc,transparent),
+    radial-gradient(calc(1.6*var(--u)) calc(1.6*var(--u)) at 64% 6%,#fff,transparent),
+    radial-gradient(calc(1.2*var(--u)) calc(1.2*var(--u)) at 71% 47%,#fff,transparent),
+    radial-gradient(calc(2*var(--u)) calc(2*var(--u)) at 86% 24%,#c4b5fd,transparent),
+    radial-gradient(calc(1.2*var(--u)) calc(1.2*var(--u)) at 94% 58%,#fff,transparent),
+    radial-gradient(calc(1.4*var(--u)) calc(1.4*var(--u)) at 15% 66%,#a5f3fc,transparent),
+    radial-gradient(calc(1.2*var(--u)) calc(1.2*var(--u)) at 44% 61%,#fff,transparent);
+  animation:twinkle 7s ease-in-out infinite alternate}
+@keyframes twinkle{from{opacity:.35}to{opacity:.8}}
+
+/* the rising planet: a dark disc with a lit atmospheric rim */
+.planet{position:absolute;left:50%;top:74%;width:200vmax;aspect-ratio:1;border-radius:50%;
+  transform:translateX(-50%);
+  background:radial-gradient(circle at 50% 0%,rgba(124,58,237,.32),#090619 9%,#05040b 30%);
+  box-shadow:
+    0 0 0 1px rgba(196,181,253,.28),
+    0 -1px 22px rgba(34,211,238,.4),
+    0 -12px 90px rgba(124,58,237,.45),
+    inset 0 2px 14px rgba(103,232,249,.35)}
+.planet-glow{position:absolute;left:50%;bottom:-55vh;width:140vw;height:110vh;
+  transform:translateX(-50%);border-radius:50%;
+  background:radial-gradient(ellipse at center,rgba(34,211,238,.35),rgba(124,58,237,.18) 40%,transparent 70%);
+  filter:blur(40px);z-index:0;pointer-events:none}
+@supports (height:100svh){.planet-glow{bottom:-55svh;height:110svh}}
+
+/* ── Comp helpers ──
+   On wide frames the structural wrappers vanish and every .l child is placed
+   against .card with inline --x/--y in reference pixels. */
+.stack,.row,.hero-blk,.tagrow,.menu{display:contents}
+.l{position:absolute;z-index:2}
+.t{left:calc((var(--x) + 13)*var(--u));top:calc((var(--y) + 15)*var(--u))}
+.c{left:calc((var(--x) + 13)*var(--u));top:calc(50% + (var(--y) - 2)*var(--u))}
+.b{left:calc((var(--x) + 13)*var(--u));bottom:calc((var(--y) + 19)*var(--u))}
+.r{left:auto;right:calc((var(--x) + 19)*var(--u))}
+.sx{display:inline-block;transform-origin:left top;transform:scaleX(var(--sx,1))}

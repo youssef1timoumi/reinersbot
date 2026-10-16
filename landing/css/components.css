@@ -1,0 +1,108 @@
+/* Header, hero type, panel, stats and footer pills — sized in comp pixels (--u). */
+
+/* ── Brand ── */
+.brand{display:flex;align-items:center;text-decoration:none;color:inherit;height:calc(44*var(--u))}
+.ring{display:block;flex:none;border-radius:50%}
+.mark{width:calc(40*var(--u));height:calc(40*var(--u));border-radius:inherit;
+  object-fit:cover;display:block;flex:none;background:var(--bg-soft)}
+.brand b{font-size:calc(22*var(--u));font-weight:650;letter-spacing:-0.03em;line-height:1;
+  margin-left:calc(12*var(--u));color:var(--ink)}
+
+/* ── Nav pill ── */
+.nav{left:50%;transform:translateX(-50%);display:flex;align-items:center;
+  height:calc(44*var(--u));padding:0 calc(5*var(--u));border-radius:999px}
+.nav a{display:flex;align-items:center;gap:calc(8*var(--u));height:calc(34*var(--u));
+  padding:0 calc(16*var(--u));border-radius:999px;color:var(--ink);text-decoration:none;
+  font-size:calc(14.5*var(--u));font-weight:500;letter-spacing:-.005em;
+  transition:background-color .3s ease}
+.nav a:hover{background-color:rgba(255,255,255,.07)}
+.nav svg{width:calc(16*var(--u));height:calc(16*var(--u));fill:none;stroke:var(--ink);
+  stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;opacity:.85}
+.n-div{width:1px;height:calc(18*var(--u));margin:0 calc(3*var(--u));background:rgba(255,255,255,.16)}
+
+/* ── Primary CTA — the one solid, glowing element ── */
+.cta{display:flex;align-items:center;gap:calc(12*var(--u));height:calc(48*var(--u));
+  padding:0 calc(5*var(--u)) 0 calc(20*var(--u));border-radius:999px;
+  color:#fff;text-decoration:none;white-space:nowrap;
+  font-size:calc(15*var(--u));font-weight:600;letter-spacing:-.01em;
+  background:linear-gradient(180deg,var(--brand),var(--brand-dark));
+  border-color:rgba(196,181,253,.35);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 10px 24px var(--brand-glow)}
+.knob{display:grid;place-items:center;flex:none;width:calc(38*var(--u));height:calc(38*var(--u));
+  border-radius:50%;background:#a78bfa;color:#1a0b3d}
+.knob svg{width:calc(16*var(--u));height:calc(16*var(--u));fill:none;stroke:currentColor;
+  stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+
+/* ── Burger (portrait frames only, see responsive.css) ── */
+.burger{display:none;place-content:center;gap:calc(5*var(--u));
+  width:calc(44*var(--u));height:calc(44*var(--u));padding:0;border-radius:50%;
+  color:var(--ink);cursor:pointer;font:inherit}
+.burger span{display:block;width:calc(18*var(--u));height:calc(2*var(--u));border-radius:9px;
+  background:currentColor;transition:transform .35s var(--ease-expo),opacity .2s}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(calc(7*var(--u))) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(calc(-7*var(--u))) rotate(-45deg)}
+
+/* ── Hero type ── */
+.eyebrow{margin:0;display:flex;align-items:center;gap:calc(10*var(--u));
+  font-size:calc(13*var(--u));font-weight:600;letter-spacing:.32em;text-transform:uppercase;
+  color:rgb(34 211 238 / .85)}
+.dot{display:block;flex:none;width:calc(7*var(--u));height:calc(7*var(--u));border-radius:50%;
+  background:var(--cyan);box-shadow:0 0 calc(12*var(--u)) var(--cyan)}
+
+.hero-h{margin:0;font-size:calc(92*var(--u));font-weight:720;letter-spacing:-.045em;line-height:.98}
+/* bottom padding keeps descenders inside the clipped text background */
+.hero-h .line{display:block;width:max-content;white-space:nowrap;padding:0 .04em .12em 0;margin-bottom:-.12em}
+
+.play{display:grid;place-items:center;flex:none;width:calc(52*var(--u));height:calc(52*var(--u));
+  border-radius:50%;color:var(--ink)}
+.play svg{width:calc(16*var(--u));height:calc(16*var(--u));fill:currentColor;margin-left:calc(2*var(--u))}
+
+.tag{margin:0;max-width:calc(500*var(--u));font-size:calc(19*var(--u));line-height:1.45;
+  font-weight:400;color:#d4d1e4}
+
+/* ── Glass panel ── */
+.panel{width:calc(320*var(--u));padding:calc(24*var(--u));border-radius:calc(24*var(--u));
+  display:flex;flex-direction:column;gap:calc(18*var(--u))}
+.p-title{display:block;font-size:calc(13*var(--u));font-weight:600;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--ice)}
+.feats{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:calc(14*var(--u))}
+.feats li{display:flex;align-items:center;gap:calc(14*var(--u))}
+.feats b{display:block;font-size:calc(15.5*var(--u));font-weight:600;letter-spacing:-.01em;line-height:1.2}
+.feats small{display:block;margin-top:calc(3*var(--u));font-size:calc(12.5*var(--u));line-height:1.3;color:var(--muted)}
+.p-icon{display:grid;place-items:center;flex:none;width:calc(40*var(--u));height:calc(40*var(--u));
+  border-radius:calc(12*var(--u));color:var(--emerald);
+  background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.28);
+  box-shadow:0 0 calc(18*var(--u)) rgba(52,211,153,.14)}
+.feats li:nth-child(2) .p-icon{color:var(--cyan);background:rgba(34,211,238,.1);border-color:rgba(34,211,238,.28)}
+.feats li:nth-child(3) .p-icon{color:var(--ice);background:rgba(167,139,250,.12);border-color:rgba(167,139,250,.3)}
+.feats li:nth-child(4) .p-icon{color:#fbbf24;background:rgba(251,191,36,.08);border-color:rgba(251,191,36,.26)}
+.p-icon svg{width:calc(20*var(--u));height:calc(20*var(--u));fill:none;stroke:currentColor;
+  stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+
+/* ── Stats ──
+   Grouped in one flex row (rather than one absolutely placed span per value)
+   so labels stay attached whatever width the real numbers end up being. */
+.stats{display:flex;align-items:center;gap:calc(28*var(--u))}
+.stat{display:flex;flex-direction:column;gap:calc(7*var(--u))}
+.num{font-size:calc(44*var(--u));font-weight:700;letter-spacing:-.035em;line-height:1;
+  font-variant-numeric:tabular-nums;color:var(--ink);padding-bottom:.06em}
+.lbl{font-size:calc(11.5*var(--u));font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.slash{display:block;flex:none;width:calc(2*var(--u));height:calc(52*var(--u));border-radius:9px;
+  transform:rotate(18deg);background:linear-gradient(180deg,transparent,var(--brand) 30%,var(--cyan) 70%,transparent)}
+
+/* ── Credit ── */
+.credit{left:50%;transform:translateX(-50%);margin:0;white-space:nowrap;
+  font-size:calc(12*var(--u));letter-spacing:.01em;color:var(--muted2)}
+.credit a{color:var(--muted);text-decoration:none;transition:color .3s ease}
+.credit a:hover{color:var(--ink)}
+.credit i{font-style:normal;margin:0 .6em;color:var(--muted2)}
+
+/* ── Meet pill ── */
+.meet{display:flex;align-items:center;gap:calc(12*var(--u));height:calc(56*var(--u));
+  padding:0 calc(6*var(--u));border-radius:999px;color:var(--ink);text-decoration:none;white-space:nowrap}
+.thumb{display:block;flex:none;width:calc(44*var(--u));height:calc(44*var(--u));border-radius:50%;
+  overflow:hidden;box-shadow:0 0 0 1px rgba(255,255,255,.16)}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.meet b{font-size:calc(15*var(--u));font-weight:600;letter-spacing:-.01em;padding-right:calc(4*var(--u))}
+.meet .knob{width:calc(44*var(--u));height:calc(44*var(--u));background:rgba(255,255,255,.1);color:var(--ink)}

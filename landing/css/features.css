@@ -1,0 +1,76 @@
+/* Features page: numbered index, then one editorial row per feature with a
+   product mock in a 3D tilt frame. Mock internals come from discord.css. */
+
+.f-index{list-style:none;margin:44px 0 0;padding:0;display:grid;column-gap:32px;
+  grid-template-columns:repeat(auto-fill,minmax(230px,1fr));border-top:1px solid var(--line)}
+.f-index a{display:flex;align-items:center;gap:14px;padding:16px 2px;border-bottom:1px solid var(--line);
+  color:var(--text-2);text-decoration:none;font-size:15.5px;font-weight:500;transition:color .25s ease,padding-left .35s var(--ease-expo)}
+.f-index a span{font:500 12px/1 var(--mono);color:var(--muted2);transition:color .25s ease}
+.f-index a .ic{margin-left:auto;opacity:0;transform:translateX(-8px);transition:opacity .25s ease,transform .35s var(--ease-expo)}
+.f-index a:hover{color:var(--ink);padding-left:8px}
+.f-index a:hover span{color:var(--cyan)}
+.f-index a:hover .ic{opacity:1;transform:none;color:var(--cyan)}
+
+.f-row{display:grid;gap:clamp(36px,5vw,80px);align-items:center;padding:clamp(64px,9vw,128px) 0;border-top:1px solid var(--line);scroll-margin-top:72px}
+@media (min-width:960px){
+  .f-row{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr)}
+  .f-row.flip .f-copy{order:2}
+}
+.f-h{margin:0;font-size:clamp(28px,3.4vw,44px);font-weight:700;letter-spacing:-.04em;line-height:1.06}
+.f-h em{font-style:normal;color:#6f6a86}
+.f-p{max-width:54ch;margin:18px 0 0;font-size:16.5px;line-height:1.65;color:var(--text-2)}
+.f-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:30px 0 0;border-top:1px solid var(--line)}
+.f-facts div{padding:16px 18px 0 0}
+.f-facts div + div{padding-left:18px;border-left:1px solid var(--line)}
+.f-facts dt{font-size:clamp(17px,1.6vw,20px);font-weight:650;letter-spacing:-.02em;color:var(--ink)}
+.f-facts dd{margin:6px 0 0;font-size:13.5px;line-height:1.5;color:var(--muted)}
+@media (max-width:520px){
+  .f-facts{grid-template-columns:minmax(0,1fr)}
+  .f-facts div,.f-facts div + div{padding:14px 0;border-left:0;border-bottom:1px solid var(--line)}
+}
+.f-facts + .tlink{margin-top:26px}
+.f-cmds{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0 20px;padding:0;list-style:none}
+.f-cmds li{padding:5px 10px;border-radius:8px;font:500 13px/1.2 var(--mono);color:var(--ice);background:rgba(124,58,237,.1);border:1px solid rgba(167,139,250,.18);
+  transition:background-color .2s ease,border-color .2s ease}
+.f-cmds li:hover{background:rgba(124,58,237,.2);border-color:rgba(167,139,250,.4)}
+
+/* visual side: a preserve-3d stage so floating cards sit in front of the window */
+.f-visual{position:relative}
+.f-stage{position:relative;transform-style:preserve-3d}
+.f-float{position:absolute;transform:translateZ(70px);z-index:2}
+.f-float.br{right:-14px;bottom:-26px}
+.f-float.tr{right:-10px;top:-24px}
+.f-float.bl{left:-14px;bottom:-26px}
+@media (max-width:640px){.f-float{position:relative;inset:auto;margin-top:-18px;margin-left:auto;transform:none;width:max-content;max-width:100%}}
+.chip{display:flex;align-items:center;gap:12px;padding:11px 16px 11px 11px;border-radius:14px;white-space:nowrap;font-size:14px;font-weight:600;
+  background:linear-gradient(180deg,rgba(30,27,48,.96),rgba(15,13,26,.96));border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 30px 60px -20px rgba(0,0,0,.9),0 0 36px -10px var(--g,rgba(124,58,237,.6))}
+.chip small{display:block;margin-top:2px;font-size:11.5px;font-weight:500;color:var(--muted)}
+.chip i{display:grid;place-items:center;width:36px;height:36px;border-radius:10px;font-size:18px;
+  color:var(--c,#a78bfa);background:color-mix(in srgb,var(--c,#7c3aed) 16%,transparent);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--c,#7c3aed) 35%,transparent)}
+
+/* rank tiers as a connected track */
+.tiers{position:relative;list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}
+.tiers::before{content:'';position:absolute;left:7%;right:7%;top:8px;height:2px;border-radius:2px;
+  background:linear-gradient(90deg,#4a4a4a,#95a5a6,#cd7f32,#c0c0c0,#ffd700,#b9f2ff,#ff6b6b);opacity:.55}
+.tiers li{position:relative;display:grid;justify-items:center;gap:8px;text-align:center}
+.tiers i{width:18px;height:18px;border-radius:50%;background:var(--r);box-shadow:0 0 0 4px #15141f,0 0 16px var(--r);transition:transform .35s var(--ease-expo)}
+.tiers li:hover i{transform:scale(1.25)}
+.tiers b{font-size:12px;font-weight:600;color:#f2f3f5}
+.tiers small{font:500 10.5px/1 var(--mono);color:#80848e}
+@media (max-width:480px){.tiers b{font-size:10px}.tiers small{font-size:9.5px}}
+
+/* web dashboard frame */
+.browser{border-radius:14px;overflow:hidden;background:#0f0e17;border:1px solid var(--line-2);
+  box-shadow:0 0 0 1px rgba(124,58,237,.12),0 40px 90px -40px rgba(0,0,0,.95),0 0 80px -30px rgba(124,58,237,.5)}
+.browser-bar{display:flex;align-items:center;gap:6px;height:38px;padding:0 14px;border-bottom:1px solid var(--line);background:#0b0a12}
+.browser-bar i{width:10px;height:10px;border-radius:50%;background:#2a2838}
+.browser-bar span{margin-left:12px;padding:4px 12px;border-radius:7px;font:500 11.5px/1 var(--mono);color:var(--muted);background:#15141f}
+.browser-body{display:grid;grid-template-columns:160px minmax(0,1fr);min-height:300px}
+.bw-side{display:grid;align-content:start;gap:4px;padding:14px 10px;border-right:1px solid var(--line);background:rgba(255,255,255,.015)}
+.bw-side span{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;font-size:13px;color:var(--muted)}
+.bw-side span[data-on]{background:rgba(124,58,237,.22);color:var(--ink)}
+.bw-main{padding:16px;min-width:0}
+.bw-main h3{display:flex;justify-content:space-between;margin:0 0 8px;font-size:13px;font-weight:600;color:#f2f3f5}
+.bw-main h3 small{font-weight:400;color:#80848e}
+@media (max-width:640px){.browser-body{grid-template-columns:minmax(0,1fr)}.bw-side{display:none}}

@@ -1,0 +1,4 @@
+.claude/
+*.tar.gz
+.DS_Store
+Thumbs.db

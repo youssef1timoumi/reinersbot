@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#05040b">
+  <title>Features — Reiner Discord Bot for League of Legends Communities</title>
+  <meta name="description" content="Everything Reiner does: MMR-balanced League custom lobbies, Imposter and live trivia, AI chat, points and server ranks, focus timers, moderation and a web Command Center.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://reinersbot.space/features/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Reiner">
+  <meta property="og:url" content="https://reinersbot.space/features/">
+  <meta property="og:title" content="Features — Reiner Discord Bot">
+  <meta property="og:description" content="Custom lobbies, mini-games, AI chat, points, focus timers and moderation, all in one Discord bot.">
+  <meta property="og:image" content="https://reinersbot.space/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://reinersbot.space/assets/og.png">
+
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/assets/icon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <script src="/js/boot.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/motion.css">
+  <link rel="stylesheet" href="/css/site.css">
+  <link rel="stylesheet" href="/css/discord.css">
+  <link rel="stylesheet" href="/css/features.css">
+  <script type="application/ld+json">
+ {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+  {"@type":"ListItem","position":1,"name":"Home","item":"https://reinersbot.space/"},
+  {"@type":"ListItem","position":2,"name":"Features","item":"https://reinersbot.space/features/"}]}
+  </script>
+</head>
+<body class="site">
+  <a class="skip" href="#main">Skip to content</a>
+  <!-- partial:topbar active=features -->
+  <header class="topbar">
+    <div class="topbar-in site-wrap">
+      <a class="s-brand" href="/" aria-label="Reiner home">
+        <span class="ring conic-ring"><img src="/assets/logo-112.webp" alt="" width="36" height="36"></span>
+        <b>Reiner</b>
+      </a>
+      <nav class="s-nav" aria-label="Primary">
+        <a href="/features/" aria-current="page">Features</a>
+        <a class="nav-opt" href="/#how">How to use</a>
+        <a href="/docs/">Docs</a>
+      </nav>
+      <a class="s-cta btn-shine" href="https://discord.com/oauth2/authorize?client_id=1346151882518827008&amp;permissions=8&amp;integration_type=0&amp;scope=bot" rel="noopener">
+        <span>Add Bot<span class="wide"> to Discord</span></span>
+        <span class="s-knob" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9.5 6 6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </header>
+  <!-- /partial:topbar -->
+
+  <div class="sub-glow" aria-hidden="true"></div>
+
+  <main id="main">
+    <header class="page-head site-wrap">
+      <ol class="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">Features</li></ol>
+      <h1 class="h-display"><span class="text-shimmer">Everything your</span><span class="text-shimmer">server runs on.</span></h1>
+      <p class="lead">Reiner started with League custom lobbies and grew into a full community toolkit: games, AI chat, points and ranks, focus timers and moderation, all managed from one web dashboard.</p>
+      <ol class="f-index rv-stagger" aria-label="Jump to a feature">
+        <li><a href="#lobbies"><span>01</span>Custom lobbies<svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#arrow-right"/></svg></a></li>
+        <li><a href="#games"><span>02</span>Mini-games<svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#arrow-right"/></svg></a></li>
+        <li><a href="#ai"><span>03</span>AI chat<svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#arrow-right"/></svg></a></li>
+        <li><a href="#points"><span>04</span>Points &amp; ranks<svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#arrow-right"/></svg></a></li>
+        <li><a href="#focus"><span>05</span>Focus timers<svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#arrow-right"/></svg></a></li>
+        <li><a href="#moderation"><span>06</span>Moderation<svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#arrow-right"/></svg></a></li>
+        <li><a href="#dashboard"><span>07</span>Command Center<svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#arrow-right"/></svg></a></li>
+      </ol>
+    </header>
+
+    <!-- 01 Lobbies -->
+    <section class="f-row site-wrap" id="lobbies" aria-labelledby="lobbies-h">
+      <div class="f-copy rv">
+        <p class="label"><b>01</b> League of Legends</p>
+        <h2 class="f-h" id="lobbies-h">Custom lobbies with real MMR. <em>No spreadsheets.</em></h2>
+        <p class="f-p">Players gather in the queue lobby, vote on the format and get moved into team voice channels. After the game everyone votes the winner, and MMR pays out, so the next lobby is fairer than the last.</p>
+        <dl class="f-facts">
+          <div><dt>+50 / −50</dt><dd>MMR per win or loss, bent by streaks</dd></div>
+          <div><dt>Team 1 · 2</dt><dd>voice channels filled for you</dd></div>
+          <div><dt>Auto-posted</dt><dd>results in your match history</dd></div>
+        </dl>
+        <ul class="f-cmds" aria-label="Commands"><li>/sendqueue</li><li>/syncparty</li></ul>
+        <a class="tlink" href="/docs/#lobby-flow">How a lobby runs <svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#arrow-right"/></svg></a>
+      </div>
+      <div class="f-visual tilt rv" data-tilt="7" aria-hidden="true">
+        <div class="f-stage">
+          <div class="dwin">
+            <div class="dwin-head"><svg class="ic"><use href="/assets/icons.svg#hash"/></svg>match-history<small>Lobby 1</small></div>
+            <div class="dwin-body">
+              <div class="m"><span class="av"><img src="/assets/logo-112.webp" alt="" loading="lazy"></span><div class="m-body">
+                <p class="m-meta"><b style="--n:#c4b5fd">Reiner</b><span class="tag-app">APP</span><time>Today at 22:41</time></p>
+                <div class="em" style="--em:#7c3aed"><b class="em-t">Match complete · Blue team wins</b>
+                  <div class="em-b"><div class="em-cols">
+                    <div><b style="color:#7dd3fc">Blue team</b><span>ShadowReaper <span class="up">+50</span></span><span>Kayzo <span class="up">+50</span></span><span>mina <span class="up">+50</span></span></div>
+                    <div><b style="color:#fca5a5">Red team</b><span>Nightfall <span class="down">−50</span></span><span>Rook <span class="down">−30</span></span><span>Vex <span class="down">−50</span></span></div>
+                  </div></div></div>
+              </div></div>
+            </div>
+          </div>
+          <div class="f-float br"><div class="chip" style="--c:#34d399;--g:#34d39999"><i><svg class="ic"><use href="/assets/icons.svg#scale"/></svg></i><span>Balanced by MMR<small>1,284 vs 1,279 avg</small></span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 Games -->
+    <section class="f-row flip site-wrap" id="games" aria-labelledby="games-h">
+      <div class="f-copy rv">
+        <p class="label"><b>02</b> Play together</p>
+        <h2 class="f-h" id="games-h">Mini-games for your voice channels. <em>Themed on League.</em></h2>
+        <p class="f-p"><b>Imposter</b> deals everyone the same secret word in DMs, except the imposter, who gets a blank. Drop hints, then vote. The <b>live quiz</b> has members guess champions from splash art, abilities, lore and titles.</p>
+        <dl class="f-facts">
+          <div><dt>+5</dt><dd>points per correct quiz answer</dd></div>
+          <div><dt>+10</dt><dd>max streak bonus</dd></div>
+          <div><dt>20:00</dt><dd>daily League question</dd></div>
+        </dl>
+        <ul class="f-cmds" aria-label="Commands"><li>/imposter</li><li>/quizz</li><li>/dailyq</li></ul>
+        <a class="tlink" href="/docs/#quiz">Try a quiz question live <svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#arrow-right"/></svg></a>
+      </div>
+      <div class="f-visual tilt rv" data-tilt="7" aria-hidden="true">
+        <div class="f-stage">
+          <div class="dwin">
+            <div class="dwin-head"><svg class="ic"><use href="/assets/icons.svg#user-question"/></svg>Imposter · DMs<small>Round 1</small></div>
+            <div class="dwin-body">
+              <div class="dm-pair">
+                <div class="dm-card"><small>Your secret word</small><b>Baron Nashor</b><span>Crew member</span></div>
+                <div class="dm-card bad"><small>Your secret word</small><b>? ? ?</b><span>You are the imposter</span></div>
+              </div>
+              <div class="em" style="--em:#22d3ee;max-width:none"><b class="em-t">League Quiz · whose title is “the Unforgiven”?</b>
+                <div class="em-b"><div class="btns"><span class="no">Riven</span><span class="ok">Yasuo</span><span class="no">Yone</span><span class="no">Irelia</span></div></div></div>
+            </div>
+          </div>
+          <div class="f-float tr"><div class="chip" style="--c:#fbbf24;--g:#fbbf2499"><i><svg class="ic"><use href="/assets/icons.svg#zap"/></svg></i><span>Kai · correct<small>+5 points · streak 3</small></span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 AI -->
+    <section class="f-row site-wrap" id="ai" aria-labelledby="ai-h">
+      <div class="f-copy rv">
+        <p class="label"><b>03</b> Natural language</p>
+        <h2 class="f-h" id="ai-h">Just talk to it. <em>No commands to memorise.</em></h2>
+        <p class="f-p">Mention Reiner the way you'd message a teammate. It sets reminders, checks points and starts timers from plain English, and admins can draft announcements with AI help.</p>
+        <dl class="f-facts">
+          <div><dt>@Reiner</dt><dd>works in any channel</dd></div>
+          <div><dt>/ai</dt><dd>ask anything directly</dd></div>
+          <div><dt>/message</dt><dd>AI-polished announcements</dd></div>
+        </dl>
+        <ul class="f-cmds" aria-label="Commands"><li>@Reiner</li><li>/ai</li><li>/message</li></ul>
+      </div>
+      <div class="f-visual tilt rv" data-tilt="7" aria-hidden="true">
+        <div class="f-stage">
+          <div class="dwin">
+            <div class="dwin-head"><svg class="ic"><use href="/assets/icons.svg#hash"/></svg>general</div>
+            <div class="dwin-body">
+              <div class="m"><span class="av" style="--a:#60a5fa">D</span><div class="m-body"><p class="m-meta"><b style="--n:#60a5fa">Duo</b><time>Today at 21:04</time></p>
+                <p class="m-text"><span class="men">@Reiner</span> remind me in 30 mins to study</p></div></div>
+              <div class="m"><span class="av"><img src="/assets/logo-112.webp" alt="" loading="lazy"></span><div class="m-body"><p class="m-meta"><b style="--n:#c4b5fd">Reiner</b><span class="tag-app">APP</span><time>Today at 21:04</time></p>
+                <p class="m-text"><svg class="ic"><use href="/assets/icons.svg#bell"/></svg>Got it. I'll remind you in 30 minutes: <b>study</b>.</p></div></div>
+              <div class="m"><span class="av" style="--a:#60a5fa">D</span><div class="m-body"><p class="m-meta"><b style="--n:#60a5fa">Duo</b><time>Today at 21:05</time></p>
+                <p class="m-text"><span class="men">@Reiner</span> how many points do I have?</p></div></div>
+              <div class="m"><span class="av"><img src="/assets/logo-112.webp" alt="" loading="lazy"></span><div class="m-body"><p class="m-meta"><b style="--n:#c4b5fd">Reiner</b><span class="tag-app">APP</span><time>Today at 21:05</time></p>
+                <p class="m-text" style="--ic:#ffd700"><svg class="ic"><use href="/assets/icons.svg#trophy"/></svg>You have <b>3,200 points</b>, rank <b>Gold</b>. 1,800 more to Diamond.</p></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 Points -->
+    <section class="f-row flip site-wrap" id="points" aria-labelledby="points-h">
+      <div class="f-copy rv">
+        <p class="label"><b>04</b> Progression</p>
+        <h2 class="f-h" id="points-h">Points and rank roles. <em>Synced to Discord.</em></h2>
+        <p class="f-p">Every member has an MMR number and a rank role that follows it, from Iron to Master. Rank roles and nicknames update by themselves, and admins can switch activity points off so lobbies are the only way to climb.</p>
+        <dl class="f-facts">
+          <div><dt>7 tiers</dt><dd>Iron to Master, real Discord roles</dd></div>
+          <div><dt>Name [123]</dt><dd>optional points on nicknames</dd></div>
+          <div><dt>/ld</dt><dd>live server leaderboard</dd></div>
+        </dl>
+        <ul class="f-cmds" aria-label="Commands"><li>/me</li><li>/ld</li><li>/pt</li><li>/resetpoints</li><li>/syncranks</li></ul>
+        <a class="tlink" href="/docs/#mmr">How MMR works <svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#arrow-right"/></svg></a>
+      </div>
+      <div class="f-visual tilt rv" data-tilt="7" aria-hidden="true">
+        <div class="f-stage">
+          <div class="dwin">
+            <div class="dwin-head"><svg class="ic"><use href="/assets/icons.svg#trophy"/></svg>Rank ladder<small>points</small></div>
+            <div class="dwin-body" style="gap:22px">
+              <ol class="tiers">
+                <li style="--r:#4a4a4a"><i></i><b>Iron</b><small>&lt;0</small></li>
+                <li style="--r:#95a5a6"><i></i><b>Unranked</b><small>0</small></li>
+                <li style="--r:#cd7f32"><i></i><b>Bronze</b><small>10</small></li>
+                <li style="--r:#c0c0c0"><i></i><b>Silver</b><small>200</small></li>
+                <li style="--r:#ffd700"><i></i><b>Gold</b><small>1k</small></li>
+                <li style="--r:#b9f2ff"><i></i><b>Diamond</b><small>5k</small></li>
+                <li style="--r:#ff6b6b"><i></i><b>Master</b><small>10k</small></li>
+              </ol>
+              <div class="m"><span class="av"><img src="/assets/logo-112.webp" alt="" loading="lazy"></span><div class="m-body">
+                <p class="m-used">↳ <b>Lumi</b> used <code>/me</code></p>
+                <p class="m-meta"><b style="--n:#c4b5fd">Reiner</b><span class="tag-app">APP</span><time>Today at 20:12</time></p>
+                <div class="em" style="--em:#ffd700"><b class="em-t">Lumi · Gold</b><div class="em-b"><p><b>3,200</b> points · #4 on the server</p>
+                  <div class="em-bar" style="--w:55%"><i></i></div><p>55% of the way to <b>Diamond</b></p></div></div>
+              </div></div>
+            </div>
+          </div>
+          <div class="f-float bl"><div class="chip" style="--c:#c0c0c0;--g:#c0c0c099"><i><svg class="ic"><use href="/assets/icons.svg#arrow-up-circle"/></svg></i><span>Pyro ranked up<small>Bronze → Silver</small></span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 Focus -->
+    <section class="f-row site-wrap" id="focus" aria-labelledby="focus-h">
+      <div class="f-copy rv">
+        <p class="label"><b>05</b> Productivity</p>
+        <h2 class="f-h" id="focus-h">Focus timers and tasks. <em>Your server as a study room.</em></h2>
+        <p class="f-p">Timers with goals that work in voice or text, a personal task dashboard with weekly progress, and a way to share milestones with everyone.</p>
+        <dl class="f-facts">
+          <div><dt>25m · 1h</dt><dd>optional goals per timer</dd></div>
+          <div><dt>Pause</dt><dd>resume and save every session</dd></div>
+          <div><dt>Weekly</dt><dd>progress in /tasks</dd></div>
+        </dl>
+        <ul class="f-cmds" aria-label="Commands"><li>/timer</li><li>/stoptimer</li><li>/resume</li><li>/tasks</li><li>/flex</li></ul>
+      </div>
+      <div class="f-visual tilt rv" data-tilt="7" aria-hidden="true">
+        <div class="f-stage">
+          <div class="dwin">
+            <div class="dwin-head"><svg class="ic"><use href="/assets/icons.svg#hash"/></svg>focus-room</div>
+            <div class="dwin-body">
+              <div class="m"><span class="av"><img src="/assets/logo-112.webp" alt="" loading="lazy"></span><div class="m-body">
+                <p class="m-used">↳ <b>Ash</b> used <code>/timer</code></p>
+                <p class="m-meta"><b style="--n:#c4b5fd">Reiner</b><span class="tag-app">APP</span><time>Today at 19:30</time></p>
+                <div class="em" style="--em:#60a5fa"><b class="em-t">Focus timer · goal 25m</b><div class="em-b">
+                  <div class="ring-t"><svg viewBox="0 0 60 60"><circle class="bgc" cx="30" cy="30" r="25"/><circle class="fg" cx="30" cy="30" r="25" style="--off:39"/></svg><div><b>18:45</b><p>Ash is focusing</p></div></div>
+                </div></div>
+              </div></div>
+            </div>
+          </div>
+          <div class="f-float br"><div class="chip" style="--c:#fbbf24;--g:#fbbf2499"><i><svg class="ic"><use href="/assets/icons.svg#flame"/></svg></i><span>Weekly goal<small>6h 48m of 10h</small></span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 Moderation -->
+    <section class="f-row flip site-wrap" id="moderation" aria-labelledby="mod-h">
+      <div class="f-copy rv">
+        <p class="label"><b>06</b> Community</p>
+        <h2 class="f-h" id="mod-h">Moderation and server tools. <em>The quiet work.</em></h2>
+        <p class="f-p">Anti-spam with rate limits and repeat detection, private thread-based support tickets, welcome and goodbye messages, live channel counters and self-assign reaction roles.</p>
+        <dl class="f-facts">
+          <div><dt>Anti-spam</dt><dd>rate limits and repeat detection</dd></div>
+          <div><dt>Tickets</dt><dd>private threads with role access</dd></div>
+          <div><dt>Counters</dt><dd>live member stats channels</dd></div>
+        </dl>
+      </div>
+      <div class="f-visual tilt rv" data-tilt="7" aria-hidden="true">
+        <div class="f-stage">
+          <div class="dwin">
+            <div class="dwin-head"><svg class="ic"><use href="/assets/icons.svg#ticket"/></svg>support · private thread</div>
+            <div class="dwin-body">
+              <div class="m"><span class="av"><img src="/assets/logo-112.webp" alt="" loading="lazy"></span><div class="m-body"><p class="m-meta"><b style="--n:#c4b5fd">Reiner</b><span class="tag-app">APP</span><time>Today at 18:02</time></p>
+                <div class="em" style="--em:#f472b6"><b class="em-t">Support ticket opened</b><div class="em-b"><p>Thanks, <b>Mira</b>. Staff have been added to this private thread and will reply here.</p></div></div></div></div>
+              <div class="m"><span class="av"><img src="/assets/logo-112.webp" alt="" loading="lazy"></span><div class="m-body"><p class="m-meta"><b style="--n:#c4b5fd">Reiner</b><span class="tag-app">APP</span><time>Today at 18:05</time></p>
+                <div class="em" style="--em:#22d3ee"><b class="em-t">Welcome to Rift Squad, Nova!</b><div class="em-b"><p>Glad you're here. Grab your roles in #roles.</p></div></div></div></div>
+            </div>
+          </div>
+          <div class="f-float tr"><div class="chip" style="--c:#f87171;--g:#f8717199"><i><svg class="ic"><use href="/assets/icons.svg#ban"/></svg></i><span>Spam blocked<small>repeat messages removed</small></span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 Dashboard -->
+    <section class="f-row site-wrap" id="dashboard" aria-labelledby="dash-h">
+      <div class="f-copy rv">
+        <p class="label"><b>07</b> Web dashboard</p>
+        <h2 class="f-h" id="dash-h">The Command Center. <em>Run it all from a browser.</em></h2>
+        <p class="f-p">Edit MMR, send messages and embeds as the bot, make it join voice, and assign lobby, team and admin channels with a right-click. You sign in from Discord with a 24-hour link, so there's no separate account.</p>
+        <dl class="f-facts">
+          <div><dt>/dashboard</dt><dd>24-hour login link by DM</dd></div>
+          <div><dt>Right-click</dt><dd>channel setup in one move</dd></div>
+          <div><dt>Live sync</dt><dd>ranks and nicknames update</dd></div>
+        </dl>
+        <a class="tlink" href="/docs/#login">Logging in <svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#arrow-right"/></svg></a>
+      </div>
+      <div class="f-visual tilt rv" data-tilt="6" aria-hidden="true">
+        <div class="f-stage">
+          <div class="browser">
+            <div class="browser-bar"><i></i><i></i><i></i><span>reinersbot.space/dashboard</span></div>
+            <div class="browser-body">
+              <div class="bw-side">
+                <span><svg class="ic"><use href="/assets/icons.svg#layout"/></svg>Overview</span>
+                <span data-on><svg class="ic"><use href="/assets/icons.svg#trophy"/></svg>Points</span>
+                <span><svg class="ic"><use href="/assets/icons.svg#hash"/></svg>Channels</span>
+                <span><svg class="ic"><use href="/assets/icons.svg#sliders"/></svg>Settings</span>
+              </div>
+              <div class="bw-main">
+                <h3>Leaderboard <small>4 ranked players</small></h3>
+                <div class="lb">
+                  <div class="lb-row"><span class="lb-pos">#1</span><span class="lb-av">SH</span><span class="lb-name"><span>ShadowReaper</span><i class="rk" style="--r:#ff6b6b">Master</i></span><span class="lb-pts">12,480</span><span class="lb-edit">Edit</span></div>
+                  <div class="lb-row"><span class="lb-pos">#2</span><span class="lb-av">NI</span><span class="lb-name"><span>Nightfall</span><i class="rk" style="--r:#b9f2ff">Diamond</i></span><span class="lb-pts">6,210</span><span class="lb-edit">Edit</span></div>
+                  <div class="lb-row"><span class="lb-pos">#3</span><span class="lb-av">KA</span><span class="lb-name"><span>Kayzo</span><i class="rk" style="--r:#ffd700">Gold</i></span><span class="lb-pts">1,845</span><span class="lb-edit">Edit</span></div>
+                  <div class="lb-row"><span class="lb-pos">#4</span><span class="lb-av">MI</span><span class="lb-name"><span>mina</span><i class="rk" style="--r:#c0c0c0">Silver</i></span><span class="lb-pts">430</span><span class="lb-edit">Edit</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="f-float br">
+            <div class="ctx">
+              <div><svg class="ic"><use href="/assets/icons.svg#volume"/></svg>Join voice</div>
+              <div><svg class="ic"><use href="/assets/icons.svg#gamepad"/></svg>League of Legends<svg class="ic chev"><use href="/assets/icons.svg#chevron-right"/></svg></div>
+              <div class="sub"><svg class="ic"><use href="/assets/icons.svg#target"/></svg>Set as Queue Lobby</div>
+              <div class="sub"><svg class="ic"><use href="/assets/icons.svg#users"/></svg>Set as Team 1 voice</div>
+              <hr>
+              <div><svg class="ic"><use href="/assets/icons.svg#copy"/></svg>Copy channel ID</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="site-wrap">
+      <div class="band rv">
+        <div>
+          <h2>Ready to run your server?</h2>
+          <p>Add Reiner and follow the <a class="tlink" href="/#how">five-minute setup</a>.</p>
+        </div>
+        <div class="band-actions">
+          <a class="s-cta btn-shine" href="https://discord.com/oauth2/authorize?client_id=1346151882518827008&amp;permissions=8&amp;integration_type=0&amp;scope=bot" rel="noopener">
+            <span>Add Bot to Discord</span>
+            <span class="s-knob" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9.5 6 6 6-6 6"/></svg></span>
+          </a>
+          <a class="s-ghost" href="/docs/">Read the docs <svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#arrow-right"/></svg></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- partial:footer -->
+  <footer class="foot">
+    <div class="site-wrap foot-grid">
+      <div class="foot-brand">
+        <a class="s-brand" href="/" aria-label="Reiner home">
+          <span class="ring conic-ring"><img src="/assets/logo-112.webp" alt="" width="36" height="36" loading="lazy"></span>
+          <b>Reiner</b>
+        </a>
+        <p>The all-in-one Discord bot for League of Legends communities: custom lobbies, mini-games, ranks and a web Command Center.</p>
+        <a class="s-cta btn-shine" href="https://discord.com/oauth2/authorize?client_id=1346151882518827008&amp;permissions=8&amp;integration_type=0&amp;scope=bot" rel="noopener">
+          <span>Add Bot to Discord</span>
+          <span class="s-knob" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9.5 6 6 6-6 6"/></svg></span>
+        </a>
+      </div>
+      <nav class="foot-col" aria-label="Product">
+        <p class="foot-h">Product</p>
+        <a href="/features/">Features</a>
+        <a href="/#preview">Live preview</a>
+        <a href="/#how">How to use</a>
+        <a href="/dashboard/">Dashboard</a>
+      </nav>
+      <nav class="foot-col" aria-label="Help">
+        <p class="foot-h">Help</p>
+        <a href="/docs/">Docs</a>
+        <a href="/docs/#troubleshooting">Troubleshooting</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+      <nav class="foot-col" aria-label="Legal and contact">
+        <p class="foot-h">Company</p>
+        <a href="mailto:yousseftimoumi@reinersbot.space">yousseftimoumi@reinersbot.space</a>
+        <a href="https://github.com/youssef1timoumi" rel="noopener">GitHub</a>
+        <a href="/privacy/">Privacy policy</a>
+        <a href="/terms/">Terms of service</a>
+      </nav>
+    </div>
+    <div class="site-wrap foot-base">
+      <span>© 2026 Reiner. Not affiliated with Riot Games or Discord.</span>
+      <span>Built by <a href="https://github.com/youssef1timoumi" rel="noopener">Youssef “Reiner” Timoumi</a></span>
+    </div>
+  </footer>
+  <!-- /partial:footer -->
+
+  <script src="/js/site.js" defer></script>
+</body>
+</html>
